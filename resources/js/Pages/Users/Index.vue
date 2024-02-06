@@ -18,13 +18,13 @@ const props = defineProps({
 });
 
 const form = useForm({
+    id: '',
     name: '',
     email: '',
 });
 
 let search = ref(props.filters.search);
 let openEditUser = ref(false);
-let editUserId = ref('');
 
 watch(search, debounce(function (value) {
     router.get('/users', { search: value }, {
@@ -35,20 +35,19 @@ watch(search, debounce(function (value) {
 
 const showEditForm = (selectedUser) => {
     openEditUser.value = true;
-    editUserId = selectedUser.id;
+    form.id = selectedUser.id;
     form.name = selectedUser.name;
     form.email = selectedUser.email;
 };
 
 const closeModal = () => {
     openEditUser.value = false;
-    editUserId = '';
 
     form.reset();
 };
 
 const updateUser = () => {
-    form.patch('/users/' + editUserId, {
+    form.patch('/users/' + form.id, {
         preserveScroll: true,
         onSuccess: () => closeModal(),
         onFinish: () => form.reset(),
