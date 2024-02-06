@@ -19,6 +19,7 @@ const props = defineProps({
 
 const form = useForm({
     name: '',
+    email: '',
 });
 
 let search = ref(props.filters.search);
@@ -32,10 +33,11 @@ watch(search, debounce(function (value) {
     });
 }, 150));
 
-const showEditForm = (id, name) => {
+const showEditForm = (selectedUser) => {
     openEditUser.value = true;
-    editUserId = id;
-    form.name = name;
+    editUserId = selectedUser.id;
+    form.name = selectedUser.name;
+    form.email = selectedUser.email;
 };
 
 const closeModal = () => {
@@ -94,7 +96,7 @@ const updateUser = () => {
                         {{ user.email }}
                     </td>
                     <td class="border-b py-2 text-blue-500 text-right">
-                        <button type="button" @click="showEditForm(user.id, user.name)">
+                        <button type="button" @click="showEditForm(user)">
                             Edit
                         </button>
                     </td>
@@ -116,6 +118,12 @@ const updateUser = () => {
                 <InputLabel for="name">Name</InputLabel>
                 <TextInput type="text" v-model="form.name" id="name" />
                 <InputError class="mt-1" :message="form.errors.name"></InputError>
+            </div>
+
+            <div class="mt-6">
+                <InputLabel for="email">Email</InputLabel>
+                <TextInput type="email" v-model="form.email" id="email" />
+                <InputError class="mt-1" :message="form.errors.email"></InputError>
             </div>
 
             <div class="mt-6 flex justify-end">
