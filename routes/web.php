@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::inertia('/', 'Home');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout')->middleware('auth');
+});
 
-Route::inertia('/settings', 'Settings');
+Route::middleware('auth')->group(function () {
+    Route::inertia('/', 'Home');
 
-Route::resource('users', UserController::class);
+    Route::inertia('/settings', 'Settings');
 
-Route::post('/logout', function () {
-    dd('logout');
+    Route::resource('users', UserController::class);
 });

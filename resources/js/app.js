@@ -12,7 +12,9 @@ createInertiaApp({
     resolve: async name => {
         const page = await resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob("./Pages/**/*.vue"));
 
-        page.default.layout ??= MainLayout;
+        if (page.default.layout === undefined) {
+            page.default.layout = MainLayout;
+        }
 
         return page;
     },

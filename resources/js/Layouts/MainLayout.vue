@@ -21,7 +21,7 @@ const user = computed(() => page.props.auth.user)
             <div class="flex items-center">
                 <h1 class="font-bold text-2xl">My App</h1>
 
-                <p class="text-sm ml-4">Welcome back {{ user }}!</p>
+                <p class="text-sm ml-4">Welcome back {{ user.name }}!</p>
             </div>
 
             <Nav />
