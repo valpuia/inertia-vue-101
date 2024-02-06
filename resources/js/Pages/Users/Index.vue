@@ -3,20 +3,21 @@
 import Pagination from '../../Components/Pagination.vue';
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
+import debounce from 'lodash/debounce.js'
 
 const props = defineProps({
     users: Object,
     filters: Object,
-})
+});
 
-let search = ref(props.filters.search)
+let search = ref(props.filters.search);
 
-watch(search, value => {
+watch(search, debounce(function (value) {
     router.get('/users', { search: value }, {
         preserveState: true,
         replace: true,
     });
-})
+}, 150));
 
 </script>
 
@@ -26,11 +27,12 @@ watch(search, value => {
     <div class="w-full">
         <div class="flex justify-between mb-5">
             <div>
-                <h1 class="font-semibold">Users</h1>
+                <h1 class="font-semibold text-2xl">Users</h1>
             </div>
             <div>
-                <input type="search" id="search" v-model="search" placeholder="Search..." class="border rounded px-3 mr-2">
-                <Link href="/users/create" class="bg-blue-500 text-white px-3 py-1 rounded">+Add</Link>
+                <input type="search" id="search" v-model="search" placeholder="Search..."
+                    class="border rounded px-3 py-1.5 mr-2">
+                <Link href="/users/create" class="bg-blue-500 text-white px-3 py-2 rounded">New User</Link>
             </div>
         </div>
 
