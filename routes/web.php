@@ -22,7 +22,7 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::inertia('/', 'Home');
+    Route::inertia('/dashboard', 'Dashboard');
 
     Route::inertia('/settings', 'Settings');
 

@@ -8,7 +8,7 @@ import NavLink from '../Components/NavLink.vue';
     <nav>
         <ul class="flex space-x-6">
             <li>
-                <NavLink href="/" :active="$page.component === 'Home'">Home</NavLink>
+                <NavLink href="/dashboard" :active="$page.component === 'Dashboard'">Dashboard</NavLink>
             </li>
             <li>
                 <NavLink href="/users" :active="$page.component === 'Users/Index'">Users</NavLink>
