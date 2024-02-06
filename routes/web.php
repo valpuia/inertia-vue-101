@@ -28,5 +28,5 @@ Route::middleware('auth')->group(function () {
 
     Route::inertia('/settings', 'Settings');
 
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)->except(['show', 'edit']);
 });

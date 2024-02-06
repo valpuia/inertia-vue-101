@@ -4,13 +4,26 @@ import Pagination from '../../Components/Pagination.vue';
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
 import debounce from 'lodash/debounce.js'
+import Modal from '../../Components/Modal.vue';
+import TextInput from '@/Components/TextInput.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import InputError from '@/Components/InputError.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import { useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
     users: Object,
     filters: Object,
 });
 
+const form = useForm({
+    name: '',
+});
+
 let search = ref(props.filters.search);
+let openEditUser = ref(false);
+let editUserId = ref('');
 
 watch(search, debounce(function (value) {
     router.get('/users', { search: value }, {
@@ -18,6 +31,27 @@ watch(search, debounce(function (value) {
         replace: true,
     });
 }, 150));
+
+const showEditForm = (id, name) => {
+    openEditUser.value = true;
+    editUserId = id;
+    form.name = name;
+};
+
+const closeModal = () => {
+    openEditUser.value = false;
+    editUserId = '';
+
+    form.reset();
+};
+
+const updateUser = () => {
+    form.patch('/users/' + editUserId, {
+        preserveScroll: true,
+        onSuccess: () => closeModal(),
+        onFinish: () => form.reset(),
+    });
+};
 
 </script>
 
@@ -60,7 +94,9 @@ watch(search, debounce(function (value) {
                         {{ user.email }}
                     </td>
                     <td class="border-b py-2 text-blue-500 text-right">
-                        Edit
+                        <button type="button" @click="showEditForm(user.id, user.name)">
+                            Edit
+                        </button>
                     </td>
                 </tr>
             </tbody>
@@ -69,4 +105,27 @@ watch(search, debounce(function (value) {
     </div>
 
     <Pagination :links="users.links" class="mt-6 flex justify-end" />
+
+    <Modal :show="openEditUser">
+        <div class="p-6">
+            <h2 class="text-lg font-medium text-gray-900">
+                Edit User
+            </h2>
+
+            <div class="mt-6">
+                <InputLabel for="name">Name</InputLabel>
+                <TextInput type="text" v-model="form.name" id="name" />
+                <InputError class="mt-1" :message="form.errors.name"></InputError>
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+
+                <PrimaryButton class="ms-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
+                    @click="updateUser">
+                    Update
+                </PrimaryButton>
+            </div>
+        </div>
+    </Modal>
 </template>
