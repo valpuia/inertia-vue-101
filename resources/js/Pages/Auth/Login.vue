@@ -26,6 +26,7 @@ function submit() {
 
     <main class="grid place-items-center min-h-screen">
         <section class="bg-white p-8 rounded max-w-md mx-auto shadow-md min-w-60">
+            <Link href="/" class="text-sm text-blue-500">&lAarr; Back</Link>
             <h1 class="text-3xl uppercase font-bold">Login</h1>
 
             <form @submit.prevent="submit" class="mt-8">

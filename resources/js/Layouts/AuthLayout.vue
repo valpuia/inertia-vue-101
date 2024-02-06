@@ -19,7 +19,7 @@ const user = computed(() => page.props.auth.user)
     <section class="bg-gray-200 p-6">
         <div class="max-w-7xl mx-auto flex justify-between">
             <div class="flex items-center">
-                <h1 class="font-bold text-2xl">My App</h1>
+                <Link href="/" class="font-bold text-2xl">My App</Link>
 
                 <p class="text-sm ml-4">Welcome back {{ user.name }}!</p>
             </div>
