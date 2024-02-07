@@ -53,7 +53,10 @@ watch(search, debounce(function (value) {
                         Content
                     </th>
                     <th class="border-b text-left">
-
+                        Publish
+                    </th>
+                    <th class="border-b text-left">
+                        Action
                     </th>
                 </tr>
             </thead>
@@ -66,10 +69,14 @@ watch(search, debounce(function (value) {
                     <td class="border-b py-2">
                         {{ post.content.substr(0, 90) + '...' }}
                     </td>
-                    <td class="border-b py-2 text-blue-500 text-right">
-                        <button type="button" v-if="user && post.user_id == user.id">
+                    <td class="border-b py-2 capitalize" :class="post.publish ? 'text-green-600' : 'text-red-500'">
+                        {{ post.publish }}
+                    </td>
+                    <td class="border-b py-2 text-right">
+                        <button type="button" v-if="user && post.user_id == user.id" class="text-blue-500">
                             Edit
                         </button>
+                        <span v-else>-</span>
                     </td>
                 </tr>
             </tbody>

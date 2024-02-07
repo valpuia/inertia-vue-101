@@ -9,12 +9,17 @@ const props = defineProps({
 
 const allPosts = ref(props.posts.data);
 const nextUrl = ref(props.posts.next_page_url);
+const loading = ref(false);
 
 const loadMorePost = () => {
+    loading.value = true;
+
     axios.get(nextUrl.value).then(response => {
         allPosts.value = [...allPosts.value, ...response.data.data];
 
         nextUrl.value = response.data.next_page_url;
+
+        loading.value = false;
     })
 }
 
@@ -34,8 +39,8 @@ const loadMorePost = () => {
     </div>
 
     <div class="flex justify-center mt-3" v-if="nextUrl">
-        <button @click="loadMorePost" class="border rounded bg-gray-50 px-2 py-1">
-            Load more...
+        <button @click="loadMorePost" class="border rounded bg-gray-50 px-2 py-1 disabled:bg-gray-400" :disabled="loading">
+            Load more<span v-show="loading">...</span>
         </button>
     </div>
 </template>
