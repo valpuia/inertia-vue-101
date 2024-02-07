@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->catchPhrase(),
             'slug' => fake()->unique()->slug(),
-            'content' => fake()->text(),
+            'content' => fake()->text(700),
             'publish' => fake()->boolean(),
             'user_id' => rand(1, 100),
         ];
