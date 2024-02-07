@@ -26,4 +26,20 @@ class HomeController extends Controller
             'posts' => $posts,
         ]);
     }
+
+    public function show($slug)
+    {
+        $post = Post::query()
+            ->where('slug', $slug)
+            ->with('user:id,name')
+            ->select('user_id', 'title', 'content', 'created_at')
+            ->firstOrFail();
+
+        $formatDate = $post->created_at->format('dS M Y');
+
+        return Inertia::render('Guest/PostDetail', [
+            'post' => $post,
+            'date' => $formatDate,
+        ]);
+    }
 }

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/post/{slug}', [HomeController::class, 'show'])->name('show.post.detail');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
@@ -26,7 +27,7 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::inertia('/dashboard', 'Dashboard');
+    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
     Route::resource('posts', PostController::class)->except(['show', 'edit']);
     Route::resource('users', UserController::class)->except(['show', 'edit']);
 });
