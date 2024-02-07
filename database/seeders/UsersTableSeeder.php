@@ -4,14 +4,14 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class PostsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\Post::truncate();
-        \App\Models\Post::factory(100)->create();
+        \App\Models\User::truncate();
+        \App\Models\User::factory(100)->create();
     }
 }

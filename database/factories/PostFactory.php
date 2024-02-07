@@ -21,7 +21,7 @@ class PostFactory extends Factory
             'slug' => fake()->unique()->slug(),
             'content' => fake()->text(),
             'publish' => fake()->boolean(),
-            'user_id' => rand(1, 20),
+            'user_id' => rand(1, 100),
         ];
     }
 }
