@@ -1,6 +1,6 @@
 <script setup>
 
-import { router } from '@inertiajs/vue3';
+import axios from 'axios';
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -8,29 +8,14 @@ const props = defineProps({
 })
 
 const allPosts = ref(props.posts.data);
-const currentPage = ref(props.posts.current_page);
-const loadingMore = ref(false)
+const nextUrl = ref(props.posts.next_page_url);
 
 const loadMorePost = () => {
-    loadingMore.value = true
+    axios.get(nextUrl.value).then(response => {
+        allPosts.value = [...allPosts.value, ...response.data.data];
 
-    router.get(route('home', { page: currentPage.value + 1 }), {}, {
-        only: ['posts'],
-        replace: false,
-        preserveState: true,
-        preserveScroll: true,
-        onSuccess: () => {
-            allPosts.value = [...allPosts.value, ...props.posts.data];
-            currentPage.value++;
-
-            setTimeout(() => {
-                window.scrollTo(0, window.scrollY + 100);
-            }, 0);
-
-            loadingMore.value = false
-        }
-    });
-
+        nextUrl.value = response.data.next_page_url;
+    })
 }
 
 </script>
@@ -48,7 +33,7 @@ const loadMorePost = () => {
         </template>
     </div>
 
-    <div class="flex justify-center mt-3" v-if="props.posts.next_page_url">
+    <div class="flex justify-center mt-3" v-if="nextUrl">
         <button @click="loadMorePost" class="border rounded bg-gray-50 px-2 py-1">
             Load more...
         </button>
