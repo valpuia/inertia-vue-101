@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $posts = Post::query()
-            ->wherePublish(1)
+            ->published()
             ->with('user:id,name')
             ->latest()
             ->simplePaginate(6, [
