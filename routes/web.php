@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::middleware('auth')->group(function () {
     Route::inertia('/dashboard', 'Dashboard');
 
-    Route::inertia('/settings', 'Settings');
+    Route::resource('posts', PostController::class)->except(['show', 'edit']);
 
     Route::resource('users', UserController::class)->except(['show', 'edit']);
 });

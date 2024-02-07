@@ -14,7 +14,7 @@ import NavLink from '../Components/NavLink.vue';
                 <NavLink href="/users" :active="$page.component.startsWith('Users')">Users</NavLink>
             </li>
             <li>
-                <NavLink href="/settings" :active="$page.component === 'Settings'">Settings</NavLink>
+                <NavLink href="/posts" :active="$page.component === 'Posts'">Posts</NavLink>
             </li>
             <li>
                 <NavLink href="/logout" method="post" as="button">Logout</NavLink>
