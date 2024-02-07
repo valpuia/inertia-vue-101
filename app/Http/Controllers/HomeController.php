@@ -14,7 +14,7 @@ class HomeController extends Controller
             ->published()
             ->with('user:id,name')
             ->latest()
-            ->simplePaginate(6, [
+            ->simplePaginate(null, [
                 'user_id', 'title', 'slug', 'content',
             ]);
 
