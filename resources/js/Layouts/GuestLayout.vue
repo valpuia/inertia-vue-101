@@ -21,7 +21,7 @@ const user = computed(() => page.props.auth.user)
         </div>
     </section>
 
-    <section class="mt-4 max-w-7xl mx-auto p-6">
+    <section class="mt-4 max-w-7xl mx-auto p-6 md:px-0">
         <slot />
     </section>
 </template>

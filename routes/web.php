@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::inertia('/', 'Guest/Home')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
@@ -26,8 +27,6 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::inertia('/dashboard', 'Dashboard');
-
     Route::resource('posts', PostController::class)->except(['show', 'edit']);
-
     Route::resource('users', UserController::class)->except(['show', 'edit']);
 });
