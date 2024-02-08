@@ -48,5 +48,7 @@ function submit() {
         <PrimaryButton type="submit" :disabled="form.processing">
             Submit
         </PrimaryButton>
+
+        <Link :href="route('posts.index')" class="border rounded-lg bg-gray-50 px-4 py-3 ml-2">Back</Link>
     </form>
 </template>
