@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class PostController extends Controller
@@ -17,6 +19,7 @@ class PostController extends Controller
             ->when(request('search'), function ($q, $search) {
                 $q->where('title', 'like', "%{$search}%");
             })
+            ->latest()
             ->paginate(10, ['id', 'title', 'content', 'publish', 'user_id'])
             ->withQueryString();
 
@@ -31,7 +34,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        // return Inertia::render('Users/Create');
+        return Inertia::render('Posts/Create');
     }
 
     /**
@@ -39,15 +42,38 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // $attributes = Validator::validate($request->all(), [
-        //     'name' => 'required',
-        //     'email' => 'required|email|unique:users,email',
-        //     'password' => 'required',
-        // ]);
+        $attributes = Validator::validate($request->all(), [
+            'title' => 'required|max:255',
+            'content' => 'required|max:1000',
+            'publish' => 'boolean',
+        ]);
 
-        // User::create($attributes);
+        $attributes['slug'] = Str::slug($attributes['title'], '-');
+        $attributes['user_id'] = auth()->id();
 
-        // return to_route('users.index');
+        Post::create($attributes);
+
+        return to_route('posts.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Post $post)
+    {
+        return Inertia::render('Posts/View', [
+            'post' => $post,
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Post $post)
+    {
+        return Inertia::render('Posts/Edit', [
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -55,14 +81,25 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $attributes = Validator::validate($request->all(), [
+            'title' => 'required|max:255',
+            'content' => 'required|max:1000',
+            'publish' => 'boolean',
+        ]);
+
+        $attributes['slug'] = Str::slug($attributes['title'], '-');
+        $attributes['user_id'] = auth()->id();
+
+        $post->update($attributes);
+
+        return to_route('posts.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        // Just in case
+        $post->delete();
     }
 }

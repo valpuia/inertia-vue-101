@@ -14,7 +14,7 @@ class Post extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'publish' => 'boolean'
+        'publish' => 'boolean',
     ];
 
     public function user(): BelongsTo

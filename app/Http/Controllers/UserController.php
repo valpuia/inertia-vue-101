@@ -18,6 +18,7 @@ class UserController extends Controller
             ->when(request('search'), function ($q, $search) {
                 $q->where('name', 'like', "%{$search}%");
             })
+            ->latest()
             ->paginate(10, ['id', 'name', 'email'])
             ->withQueryString();
 
@@ -67,7 +68,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
         // Just in case
     }
