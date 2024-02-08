@@ -87,9 +87,6 @@ class PostController extends Controller
             'publish' => 'boolean',
         ]);
 
-        $attributes['slug'] = Str::slug($attributes['title'], '-');
-        $attributes['user_id'] = auth()->id();
-
         $post->update($attributes);
 
         return to_route('posts.index');
