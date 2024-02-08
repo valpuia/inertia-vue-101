@@ -16,9 +16,6 @@ import NavLink from '../Components/NavLink.vue';
             <li>
                 <NavLink href="/posts" :active="$page.component.startsWith('Posts')">Posts</NavLink>
             </li>
-            <li>
-                <NavLink href="/logout" method="post" as="button">Logout</NavLink>
-            </li>
         </ul>
     </nav>
 </template>

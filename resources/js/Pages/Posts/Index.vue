@@ -76,6 +76,9 @@ const deletePost = () => {
                         Publish
                     </th>
                     <th class="border-b text-left">
+                        Creator
+                    </th>
+                    <th class="border-b text-right">
                         Action
                     </th>
                 </tr>
@@ -87,11 +90,14 @@ const deletePost = () => {
                         {{ post.title }}
                     </th>
                     <td class="border-b py-2">
-                        {{ post.content.substr(0, 90) + '...' }}
+                        {{ post.content.substr(0, 50) + '...' }}
                     </td>
                     <td class="border-b py-2 capitalize" :class="post.publish ? 'text-green-600' : 'text-red-500'">
                         {{ post.publish }}
                     </td>
+                    <th class="border-b py-2 font-normal">
+                        {{ post.user.name }}
+                    </th>
                     <td class="border-b py-2 text-right">
                         <Link :href="route('posts.show', post.id)" class="mr-2 text-gray-600">View</Link>
 

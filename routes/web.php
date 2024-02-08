@@ -23,7 +23,7 @@ Route::get('/post/{slug}', [HomeController::class, 'show'])->name('show.post.det
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'authenticate');
-    Route::post('/logout', 'logout')->middleware('auth');
+    Route::post('/logout', 'logout')->middleware('auth')->name('logout');
 });
 
 Route::middleware('auth')->group(function () {

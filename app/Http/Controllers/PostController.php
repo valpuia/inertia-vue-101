@@ -19,6 +19,7 @@ class PostController extends Controller
             ->when(request('search'), function ($q, $search) {
                 $q->where('title', 'like', "%{$search}%");
             })
+            ->with('user:id,name')
             ->latest()
             ->paginate(10, ['id', 'title', 'content', 'publish', 'user_id'])
             ->withQueryString();
