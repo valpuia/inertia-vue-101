@@ -22,11 +22,16 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Scope a query to only include published posts.
-     */
     public function scopePublished(Builder $query): void
     {
         $query->where('publish', true);
+    }
+
+    public function scopeFilter(Builder $query, array $filters)
+    {
+        $query
+            ->when($filters['search'] ?? null, function ($query, $search) {
+                $query->where('title', 'like', "%{$search}%");
+            });
     }
 }
