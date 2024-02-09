@@ -62,8 +62,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $onlyNeededPost = $post->only('title', 'content', 'publish');
+
         return Inertia::render('Posts/View', [
-            'post' => $post,
+            'post' => $onlyNeededPost,
         ]);
     }
 
@@ -72,8 +74,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $onlyNeededPost = $post->only('id', 'title', 'content', 'publish');
+
         return Inertia::render('Posts/Edit', [
-            'post' => $post,
+            'post' => $onlyNeededPost,
         ]);
     }
 

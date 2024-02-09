@@ -27,18 +27,15 @@ class HomeController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function show(Post $post)
     {
-        $post = Post::query()
-            ->where('slug', $slug)
-            ->with('user:id,name')
-            ->select('user_id', 'title', 'content', 'created_at')
-            ->firstOrFail();
+        $onlyNeededPost = $post->loadMissing('user:id,name')
+            ->only('user_id', 'title', 'content', 'created_at', 'user');
 
         $formatDate = $post->created_at->format('dS M Y');
 
         return Inertia::render('Guest/PostDetail', [
-            'post' => $post,
+            'post' => $onlyNeededPost,
             'date' => $formatDate,
         ]);
     }
