@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function show(Post $post)
     {
         $onlyNeededPost = $post->loadMissing('user:id,name')
-            ->only('user_id', 'title', 'content', 'created_at', 'user');
+            ->only('user_id', 'title', 'content', 'user');
 
         $formatDate = $post->created_at->format('dS M Y');
 
