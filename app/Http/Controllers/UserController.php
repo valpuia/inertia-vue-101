@@ -70,6 +70,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        // Just in case
+        $user->delete();
     }
 }
