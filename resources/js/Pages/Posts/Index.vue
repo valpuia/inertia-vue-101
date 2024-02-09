@@ -46,8 +46,10 @@ const deletePost = () => {
 <template>
     <Head title="Posts" />
 
-    <div>
+    <div class="flex justify-between">
         <h2 class="text-2xl font-semibold leading-tight">Posts</h2>
+
+        <Link href="/posts/create" class="bg-blue-500 text-white px-3 py-2 rounded">New Post</Link>
     </div>
 
     <div class="my-2 flex sm:flex-row flex-col">
@@ -119,7 +121,8 @@ const deletePost = () => {
                             </p>
                         </td>
                         <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
+                            <p class="whitespace-no-wrap capitalize"
+                                :class="post.publish ? 'text-green-600' : 'text-red-500'">
                                 {{ post.publish }}
                             </p>
                         </td>
