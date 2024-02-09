@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/post/{post:slug}', [HomeController::class, 'show'])->name('show.post.detail');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/post/{post:slug}', 'show')->name('show.post.detail');
+});
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
@@ -26,6 +28,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/logout', 'logout')->middleware('auth')->name('logout');
 });
 
+// authenticated user
 Route::middleware('auth')->group(function () {
     Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
     Route::resource('posts', PostController::class);
