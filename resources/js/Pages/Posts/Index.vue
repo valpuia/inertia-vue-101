@@ -77,7 +77,7 @@ const deletePost = () => {
                     </path>
                 </svg>
             </span>
-            <input placeholder="Search" v-model="search"
+            <input placeholder="Search" v-model="search" type="search"
                 class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
         </div>
     </div>
@@ -110,7 +110,7 @@ const deletePost = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="post in posts.data" :key="post.id">
+                    <tr v-if="posts.data.length" v-for="post in posts.data" :key="post.id">
                         <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
                                 {{ post.title }}
@@ -140,13 +140,21 @@ const deletePost = () => {
                             <button @click="confirmModal(post.id)" class="text-red-500">Delete</button>
                         </td>
                     </tr>
+
+                    <tr v-else>
+                        <td colspan="5" class="px-3 py-3 border-b border-gray-200 bg-white text-sm text-center">
+                            <p class="text-gray-900 whitespace-no-wrap">
+                                No data found
+                            </p>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <SimplePagination :prevUrl="props.posts.prev_page_url" :nextUrl="props.posts.next_page_url" :total="props.posts.total"
-        :from="props.posts.from" :to="props.posts.to" />
+    <SimplePagination v-if="props.posts.data.length" :prevUrl="props.posts.prev_page_url"
+        :nextUrl="props.posts.next_page_url" :total="props.posts.total" :from="props.posts.from" :to="props.posts.to" />
 
     <Modal :show="openDeleteConfirmationModal">
         <div class="p-6">
