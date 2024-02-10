@@ -57,7 +57,7 @@ const deletePost = () => {
         <div class="flex flex-row mb-1 sm:mb-0">
             <div class="relative">
                 <select v-model="status"
-                    class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
+                    class="appearance-none h-full rounded-l rounded-r border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
                     <option value="">All</option>
                     <option value="1">Published</option>
                     <option value="false">Unpublish</option>
