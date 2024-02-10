@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::query()
-            ->filter(request()->only('search'))
+            ->filter(request()->only('search', 'status'))
             ->with('user:id,name')
             ->latest()
             ->paginate(10, ['id', 'title', 'content', 'publish', 'user_id'])
@@ -24,7 +24,7 @@ class PostController extends Controller
 
         return Inertia::render('Posts/Index', [
             'posts' => $posts,
-            'filters' => request()->only('search'),
+            'filters' => request()->only('search', 'status'),
         ]);
     }
 

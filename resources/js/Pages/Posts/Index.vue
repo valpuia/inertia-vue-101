@@ -15,10 +15,11 @@ const props = defineProps({
 
 let openDeleteConfirmationModal = ref(false);
 let search = ref(props.filters.search);
+let status = ref(props.filters.status ?? '');
 let idToBeDeleted = ref('');
 
-watch(search, debounce(function (value) {
-    router.get('/posts', { search: value }, {
+watch([search, () => status.value], debounce(function ([search, status]) {
+    router.get('/posts', { search: search, status: status }, {
         preserveState: true,
         replace: true,
     });
@@ -55,10 +56,10 @@ const deletePost = () => {
     <div class="my-2 flex sm:flex-row flex-col">
         <div class="flex flex-row mb-1 sm:mb-0">
             <div class="relative">
-                <select
+                <select v-model="status"
                     class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
-                    <option value="all">All</option>
-                    <option value="true">Published</option>
+                    <option value="">All</option>
+                    <option value="1">Published</option>
                     <option value="false">Unpublish</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -123,7 +124,7 @@ const deletePost = () => {
                         <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
                             <p class="whitespace-no-wrap capitalize"
                                 :class="post.publish ? 'text-green-600' : 'text-red-500'">
-                                {{ post.publish }}
+                                {{ post.publish ? 'Published' : 'Unpublish' }}
                             </p>
                         </td>
                         <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">

@@ -32,6 +32,9 @@ class Post extends Model
         $query
             ->when($filters['search'] ?? null, function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%");
+            })
+            ->when($filters['status'] ?? null, function ($query, $status) {
+                $query->where('publish', $status);
             });
     }
 }
