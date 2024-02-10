@@ -14,7 +14,7 @@ class HomeController extends Controller
             ->published()
             ->with('user:id,name')
             ->latest()
-            ->simplePaginate(12, ['user_id', 'title', 'slug', 'content']);
+            ->simplePaginate(8, ['user_id', 'title', 'slug', 'content']);
 
         if ($request->wantsJson()) {
             return $posts;
