@@ -53,7 +53,7 @@ const deletePost = () => {
         <Link href="/posts/create" class="bg-blue-500 text-white px-3 py-2 rounded">New Post</Link>
     </div>
 
-    <div class="my-2 flex sm:flex-row flex-col">
+    <div class="my-2 flex sm:flex-row flex-col justify-end">
         <div class="flex flex-row mb-1 sm:mb-0">
             <div class="relative">
                 <select v-model="status"
