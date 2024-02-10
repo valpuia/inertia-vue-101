@@ -15,6 +15,6 @@ defineProps({
             :class="{
                 'text-gray-500': !link.url,
                 'bg-gray-200': link.active
-            }" />
+            }" preserve-scroll />
     </div>
 </template>

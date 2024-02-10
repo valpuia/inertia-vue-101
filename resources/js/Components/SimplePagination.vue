@@ -16,12 +16,12 @@ defineProps({
             Showing {{ from }} to {{ to }} of {{ total }} Entries
         </span>
         <div class="inline-flex mt-2 xs:mt-0">
-            <Component :is="prevUrl ? 'Link' : 'span'" :href="prevUrl"
+            <Component :is="prevUrl ? 'Link' : 'span'" :href="prevUrl" preserve-scroll
                 class="text-sm bg-gray-300 font-semibold py-2 px-4 rounded-l"
                 :class="prevUrl ? 'hover:bg-gray-400 text-gray-800' : 'text-gray-600 cursor-not-allowed'">
                 Prev
             </Component>
-            <Component :is="nextUrl ? 'Link' : 'span'" :href="nextUrl"
+            <Component :is="nextUrl ? 'Link' : 'span'" :href="nextUrl" preserve-scroll
                 class="text-sm bg-gray-300 font-semibold py-2 px-4 rounded-r"
                 :class="nextUrl ? 'hover:bg-gray-400 text-gray-800' : 'text-gray-600 cursor-not-allowed'">
                 Next
