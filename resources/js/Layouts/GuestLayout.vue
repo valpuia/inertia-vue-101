@@ -13,7 +13,7 @@ const user = computed(() => page.props.auth.user)
     <Head title="Welcome to My App" />
 
     <section class="bg-gray-200 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between">
+        <div class="container mx-auto flex justify-between">
             <Link href="/" class="font-bold text-2xl">My App</Link>
 
             <Link href="/login" v-if="user == null">Login</Link>
@@ -21,7 +21,5 @@ const user = computed(() => page.props.auth.user)
         </div>
     </section>
 
-    <section class="mt-4 max-w-7xl mx-auto p-4 md:px-0">
-        <slot />
-    </section>
+    <slot />
 </template>
