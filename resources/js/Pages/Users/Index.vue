@@ -1,10 +1,10 @@
 <script setup>
 
-import Pagination from '../../Components/Pagination.vue';
+import Pagination from '@/Components/Pagination.vue';
 import { ref, watch } from 'vue';
 import { router, useForm } from '@inertiajs/vue3';
 import debounce from 'lodash/debounce.js'
-import Modal from '../../Components/Modal.vue';
+import Modal from '@/Components/Modal.vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
@@ -95,23 +95,21 @@ const deleteUser = () => {
         <table class="w-full border-collapse">
             <thead>
                 <tr>
-                    <th class="border-b text-left">
+                    <th class="border-b text-left" id="name">
                         Name
                     </th>
-                    <th class="border-b text-left">
+                    <th class="border-b text-left" id="email">
                         Email
                     </th>
-                    <th class="border-b text-left">
-
-                    </th>
+                    <th class="border-b text-left" id="action"></th>
                 </tr>
             </thead>
 
             <tbody class="text-left">
                 <tr v-for="user in users.data" :key="user.id">
-                    <th class="border-b py-2 font-normal">
+                    <td class="border-b py-2">
                         {{ user.name }}
-                    </th>
+                    </td>
                     <td class="border-b py-2">
                         {{ user.email }}
                     </td>

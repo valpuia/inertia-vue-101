@@ -3,8 +3,8 @@
 import Nav from '../Shared/Nav.vue'
 import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
-import Dropdown from '../Components/Dropdown.vue';
-import DropdownLink from '../Components/DropdownLink.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
 
 const page = usePage()
 

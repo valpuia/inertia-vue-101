@@ -10,7 +10,7 @@ defineProps({
 <template>
     <Head :title="post.title" />
 
-    <section class="max-w-md mx-auto">
+    <section class="max-w-md mx-auto mt-6">
         <div class="border rounded-xl bg-gray-100 p-4 mb-4">
             <div class="font-semibold text-2xl">{{ post.title }}</div>
 

@@ -3,7 +3,6 @@
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
 
 const props = defineProps({
     post: Object,
