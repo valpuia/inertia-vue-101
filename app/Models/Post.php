@@ -27,7 +27,7 @@ class Post extends Model
         $query->where('publish', true);
     }
 
-    public function scopeFilter(Builder $query, array $filters)
+    public function scopeFilter(Builder $query, array $filters): void
     {
         $query
             ->when($filters['search'] ?? null, function ($query, $search) {
