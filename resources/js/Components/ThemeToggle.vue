@@ -58,7 +58,7 @@ onMounted(() => {
 <template>
     <div class="flex justify-center">
         <div class="relative">
-            <button class="flex text-md border p-1 rounded-full border-gray-400 transition" @click="toggleDropdown">
+            <button class="flex text-md p-1 border-gray-400 transition" @click="toggleDropdown">
                 <SunIcon v-if="option === 'light'" class="h-5 w-5" aria-hidden="true" />
                 <MoonIcon v-if="option === 'dark'" class="h-5 w-5" aria-hidden="true" />
                 <ComputerDesktopIcon v-if="option === 'system'" class="h-5 w-5" aria-hidden="true" />
