@@ -87,7 +87,7 @@ const deleteUser = () => {
             </div>
             <div>
                 <input type="search" id="search" v-model="search" placeholder="Search..."
-                    class="border rounded px-3 py-1.5 mr-2">
+                    class="rounded px-3 py-1.5 mr-2 dark:bg-gray-500">
                 <Link href="/users/create" class="bg-blue-500 text-white px-3 py-2 rounded">New User</Link>
             </div>
         </div>

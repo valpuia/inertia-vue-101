@@ -57,12 +57,13 @@ const deletePost = () => {
         <div class="flex flex-row mb-1 sm:mb-0">
             <div class="relative">
                 <select v-model="status"
-                    class="appearance-none h-full rounded-l rounded-r border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
+                    class="appearance-none h-full rounded-l rounded-r border block w-full bg-white dark:bg-gray-700 dark:text-gray-200 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
                     <option value="">All</option>
                     <option value="1">Published</option>
                     <option value="false">Unpublish</option>
                 </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-200">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
@@ -78,7 +79,7 @@ const deletePost = () => {
                 </svg>
             </span>
             <input placeholder="Search" v-model="search" type="search"
-                class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                class="appearance-none rounded-r rounded-l sm:rounded-l-none border dark:bg-gray-700 dark:text-gray-200 border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
         </div>
     </div>
 
@@ -88,51 +89,56 @@ const deletePost = () => {
                 <thead>
                     <tr>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Title
                         </th>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Content
                         </th>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Status
                         </th>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Creator
                         </th>
                         <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-if="posts.data.length" v-for="post in posts.data" :key="post.id">
-                        <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
+                        <td
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
+                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
                                 {{ post.title }}
                             </p>
                         </td>
-                        <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
+                        <td
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
+                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
                                 {{ post.content.substr(0, 50) + '...' }}
                             </p>
                         </td>
-                        <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
                             <p class="whitespace-no-wrap capitalize"
                                 :class="post.publish ? 'text-green-600' : 'text-red-500'">
                                 {{ post.publish ? 'Published' : 'Unpublish' }}
                             </p>
                         </td>
-                        <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
+                        <td
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
+                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
                                 {{ post.user.name }}
                             </p>
                         </td>
-                        <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                        <td
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm text-right">
                             <Link :href="route('posts.show', post.id)" class="mr-2 text-gray-600">View</Link>
 
                             <Link :href="route('posts.edit', post.id)" class="mr-2 text-blue-500">Edit</Link>
@@ -142,8 +148,8 @@ const deletePost = () => {
                     </tr>
 
                     <tr v-else>
-                        <td colspan="5" class="px-3 py-3 border-b border-gray-200 bg-white text-sm text-center">
-                            <p class="text-gray-900 whitespace-no-wrap">
+                        <td colspan="5" class="px-3 py-3 border-gray-200 bg-white dark:bg-gray-600 text-sm text-center">
+                            <p class="text-gray-900 dark:text-gray-200 whitespace-no-wrap">
                                 No data found
                             </p>
                         </td>
