@@ -28,6 +28,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/logout', 'logout')->middleware('auth')->name('logout');
 });
 
+Route::inertia('/contact-us', 'Guest/Contact')->name('contact.us');
+
 // authenticated user
 Route::middleware('auth')->group(function () {
     Route::inertia('/dashboard', 'Dashboard')->name('dashboard');

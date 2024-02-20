@@ -1,0 +1,3 @@
+<template>
+    Contact us
+</template>
