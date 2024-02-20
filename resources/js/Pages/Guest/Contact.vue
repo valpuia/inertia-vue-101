@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import Textarea from '../../Components/Textarea.vue';
 
 const form = useForm({
     name: '',
@@ -44,8 +45,7 @@ function submit() {
 
                 <div class="mb-6">
                     <InputLabel for="message">Message</InputLabel>
-                    <textarea id="message" rows="5" v-model="form.message"
-                        class="w-full rounded-lg p-2 dark:bg-gray-600"></textarea>
+                    <Textarea id="message" rows="5" v-model="form.message" />
                     <InputError class="mt-1" :message="form.errors.message"></InputError>
                 </div>
 
