@@ -44,7 +44,8 @@ function submit() {
 
                 <div class="mb-6">
                     <InputLabel for="message">Message</InputLabel>
-                    <textarea id="message" rows="5" v-model="form.message" class="w-full border rounded-lg p-2"></textarea>
+                    <textarea id="message" rows="5" v-model="form.message"
+                        class="w-full rounded-lg p-2 dark:bg-gray-600"></textarea>
                     <InputError class="mt-1" :message="form.errors.message"></InputError>
                 </div>
 

@@ -2,6 +2,7 @@
 
 import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
+import ThemeToggle from '../Components/ThemeToggle.vue';
 
 const page = usePage()
 
@@ -13,22 +14,25 @@ const user = computed(() => page.props.auth.user)
     <Head title="Welcome to My App" />
 
     <div class="flex flex-col h-screen">
-        <section class="bg-gray-200 p-4">
+        <section class="bg-gray-200 dark:bg-gray-800 dark:text-white p-4">
             <div class="container mx-auto flex justify-between">
                 <Link href="/" class="font-bold text-2xl">My App</Link>
 
-                <Link href="/login" v-if="user == null">Login</Link>
-                <Link href="/dashboard" v-else>Dashboard</Link>
+                <div class="flex">
+                    <ThemeToggle class="mr-3" />
+                    <Link href="/login" v-if="user == null">Login</Link>
+                    <Link href="/dashboard" v-else>Dashboard</Link>
+                </div>
             </div>
         </section>
 
-        <main class="flex-grow">
+        <main class="flex-grow dark:bg-gray-700 dark:text-white">
             <slot />
         </main>
 
-        <footer class="bg-gray-100">
+        <footer class="bg-gray-100 dark:bg-gray-800 dark:text-white">
             <div class="container py-6 mx-auto flex items-center sm:flex-row flex-col">
-                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center">
                     <img src="/logo.png" alt="logo" class="w-10 h-10">
                     <span class="ml-3 text-xl">My App</span>
                 </a>

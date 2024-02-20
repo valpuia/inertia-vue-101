@@ -32,7 +32,7 @@ const loadMorePost = () => {
         <img class="absolute inset-0 h-full w-full object-cover bg-center bg-no-repeat block" src="/images/banner.jpg"
             alt="banner" loading="lazy" />
 
-        <div class="absolute inset-0 bg-gray-100 bg-opacity-70 block"></div>
+        <div class="absolute inset-0 bg-gray-100 bg-opacity-70 dark:bg-gray-300 dark:bg-opacity-40 block"></div>
 
         <div class="container mx-auto relative text-center">
             <div
@@ -47,16 +47,18 @@ const loadMorePost = () => {
             <div class="md:col-span-2">
                 <div class="w-100 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <template v-for="(post, index) in allPosts" :key="index">
-                        <Link :href="route('show.post.detail', post.slug)" class="bg-gray-50 shoadow border rounded-xl p-5">
+                        <Link :href="route('show.post.detail', post.slug)"
+                            class="bg-gray-50 dark:bg-gray-600 shoadow border dark:border-gray-600 rounded-xl p-5">
                         <div class="font-semibold">{{ post.title }}</div>
                         <div>{{ post.content.substr(0, 85) + '...' }}</div>
-                        <div class="text-xs text-gray-500 mt-1">-- {{ post.user.name }}</div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">-- {{ post.user.name }}</div>
                         </Link>
                     </template>
                 </div>
 
                 <div class="flex justify-center mt-3" v-if="nextUrl">
-                    <button @click="loadMorePost" class="border rounded bg-gray-50 px-2 py-1 disabled:bg-gray-400"
+                    <button @click="loadMorePost"
+                        class="border dark:border-gray-500 rounded bg-gray-50 dark:bg-gray-600 px-2 py-1 disabled:bg-gray-400"
                         :disabled="loading">
                         Load more<span v-show="loading">...</span>
                     </button>
