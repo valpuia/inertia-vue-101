@@ -163,8 +163,8 @@ const deletePost = () => {
         :nextUrl="props.posts.next_page_url" :total="props.posts.total" :from="props.posts.from" :to="props.posts.to" />
 
     <Modal :show="openDeleteConfirmationModal">
-        <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900">
+        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+            <h2 class="text-lg font-medium">
                 Delete Post?
             </h2>
 

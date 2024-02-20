@@ -131,8 +131,8 @@ const deleteUser = () => {
     <Pagination :links="users.links" class="mt-6 flex justify-end" />
 
     <Modal :show="openEditUser">
-        <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900">
+        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+            <h2 class="text-lg font-medium">
                 Edit User
             </h2>
 
@@ -160,8 +160,8 @@ const deleteUser = () => {
     </Modal>
 
     <Modal :show="openDeleteModal">
-        <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900">
+        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+            <h2 class="text-lg font-medium">
                 Delete User?
             </h2>
 

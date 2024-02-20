@@ -8,5 +8,5 @@ const model = defineModel({
 </script>
 
 <template>
-    <input v-model="model" class="w-full p-2 dark:bg-gray-600 rounded border dark:border-gray-400" ref="input">
+    <textarea v-model="model" class="w-full p-2 dark:bg-gray-600 rounded-lg" ref="input"></textarea>
 </template>

@@ -76,8 +76,8 @@ const closeEditModal = () => {
         :to="props.contacts.to" class="mt-6" />
 
     <Modal :show="openContactView">
-        <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900 mb-4">
+        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+            <h2 class="text-lg font-medium mb-4">
                 Details
             </h2>
 

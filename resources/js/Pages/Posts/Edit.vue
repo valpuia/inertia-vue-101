@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
+import Textarea from '../../Components/Textarea.vue';
 
 const props = defineProps({
     post: Object,
@@ -37,8 +38,7 @@ function submit() {
 
         <div class="mb-6">
             <InputLabel for="content">Content</InputLabel>
-            <textarea name="content" id="content" rows="5" v-model="form.content"
-                class="w-full border rounded-lg p-2"></textarea>
+            <Textarea name="content" id="content" rows="5" v-model="form.content" />
             <InputError class="mt-1" :message="form.errors.content"></InputError>
         </div>
 
@@ -53,6 +53,6 @@ function submit() {
             Submit
         </PrimaryButton>
 
-        <Link :href="route('posts.index')" class="border rounded-lg bg-gray-50 px-4 py-3 ml-2">Back</Link>
+        <Link :href="route('posts.index')" class="border rounded-lg bg-gray-50 dark:bg-gray-500 px-4 py-3 ml-2">Back</Link>
     </form>
 </template>
