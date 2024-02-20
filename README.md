@@ -6,3 +6,4 @@ Just a simple vue-inertia project
 - Octane
 - Inertia(Vue)
 - Tailwind
+- Ziggy
