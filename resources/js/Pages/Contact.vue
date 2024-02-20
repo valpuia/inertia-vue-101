@@ -3,7 +3,7 @@
 import SimplePagination from '@/Components/SimplePagination.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-
+import { EyeIcon } from '@heroicons/vue/20/solid';
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -61,8 +61,9 @@ const closeEditModal = () => {
                         {{ contact.message.substr(0, 20) + '...' }}
                     </td>
                     <td class="border-b py-2 text-right">
-                        <button type="button" class="mr-2 text-gray-600" @click="showContactModal(contact)">
-                            View
+                        <button type="button" class="mr-2 text-gray-600 dark:text-gray-400"
+                            @click="showContactModal(contact)">
+                            <EyeIcon class="w-5 h-5" />
                         </button>
                     </td>
                 </tr>

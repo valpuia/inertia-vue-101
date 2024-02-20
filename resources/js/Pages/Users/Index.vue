@@ -11,6 +11,7 @@ import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import DangerButton from '@/Components/DangerButton.vue';
+import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
 
 const props = defineProps({
     users: Object,
@@ -115,11 +116,11 @@ const deleteUser = () => {
                     </td>
                     <td class="border-b py-2 text-right">
                         <button type="button" @click="showEditForm(user)" class="mr-2 text-blue-500">
-                            Edit
+                            <PencilSquareIcon class="w-5 h-5" />
                         </button>
 
                         <button @click="confirmDelete(user.id)" class="text-red-500">
-                            Delete
+                            <TrashIcon class="w-5 h-5" />
                         </button>
                     </td>
                 </tr>

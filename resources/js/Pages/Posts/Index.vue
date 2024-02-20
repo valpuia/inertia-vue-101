@@ -7,6 +7,7 @@ import Modal from '@/Components/Modal.vue';
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
 import debounce from 'lodash/debounce.js';
+import { PencilSquareIcon, TrashIcon, EyeIcon } from '@heroicons/vue/20/solid';
 
 const props = defineProps({
     posts: Object,
@@ -138,12 +139,18 @@ const deletePost = () => {
                             </p>
                         </td>
                         <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm text-right">
-                            <Link :href="route('posts.show', post.id)" class="mr-2 text-gray-600">View</Link>
+                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm flex justify-end items-center">
+                            <Link :href="route('posts.show', post.id)" class="mr-2 text-gray-600 dark:text-gray-300">
+                            <EyeIcon class="w-5 h-5" />
+                            </Link>
 
-                            <Link :href="route('posts.edit', post.id)" class="mr-2 text-blue-500">Edit</Link>
+                            <Link :href="route('posts.edit', post.id)" class="mr-2 text-blue-500">
+                            <PencilSquareIcon class="w-5 h-5" />
+                            </Link>
 
-                            <button @click="confirmModal(post.id)" class="text-red-500">Delete</button>
+                            <button @click="confirmModal(post.id)" class="text-red-500">
+                                <TrashIcon class="w-5 h-5" />
+                            </button>
                         </td>
                     </tr>
 
