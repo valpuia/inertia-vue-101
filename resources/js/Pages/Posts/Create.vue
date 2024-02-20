@@ -14,7 +14,7 @@ const form = useForm({
 })
 
 function submit() {
-    form.post(route('posts.store'), form)
+    form.post(route('posts.store'))
 }
 
 </script>

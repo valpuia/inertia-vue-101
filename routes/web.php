@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,7 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::inertia('/contact-us', 'Guest/Contact')->name('contact.us');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // authenticated user
 Route::middleware('auth')->group(function () {

@@ -18,7 +18,7 @@ const form = useForm({
 })
 
 function submit() {
-    form.put(route('posts.update', props.post.id), form)
+    form.put(route('posts.update', props.post.id))
 }
 
 </script>

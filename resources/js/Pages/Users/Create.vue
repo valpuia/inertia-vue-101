@@ -13,7 +13,7 @@ const form = useForm({
 })
 
 function submit() {
-    form.post('/users', form)
+    form.post('/users')
 }
 
 </script>
