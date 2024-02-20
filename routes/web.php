@@ -30,7 +30,8 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::inertia('/contact-us', 'Guest/Contact')->name('contact.us');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
 // authenticated user
 Route::middleware('auth')->group(function () {

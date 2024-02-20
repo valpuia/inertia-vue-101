@@ -10,11 +10,17 @@ import NavLink from '@/Components/NavLink.vue';
             <li>
                 <NavLink href="/dashboard" :active="route().current('dashboard')">Dashboard</NavLink>
             </li>
+
             <li>
                 <NavLink href="/users" :active="$page.component.startsWith('Users')">Users</NavLink>
             </li>
+
             <li>
                 <NavLink href="/posts" :active="$page.component.startsWith('Posts')">Posts</NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/contacts" :active="route().current('contacts.index')">Contact</NavLink>
             </li>
         </ul>
     </nav>
