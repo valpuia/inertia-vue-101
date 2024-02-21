@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,10 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::inertia('/contact-us', 'Guest/Contact')->name('contact.us');
-Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contacts', [ContactController::class, 'store'])
+    ->middleware([HandlePrecognitiveRequests::class])
+    ->name('contact.store');
 
 // authenticated user
 Route::middleware('auth')->group(function () {
