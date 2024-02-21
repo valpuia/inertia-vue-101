@@ -6,17 +6,15 @@ import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import Textarea from '../../Components/Textarea.vue';
+import Textarea from '@/Components/Textarea.vue';
 
 const form = useForm({
     title: '',
     content: '',
     publish: false,
-})
+});
 
-function submit() {
-    form.post(route('posts.store'))
-}
+const submit = () => form.post(route('posts.store'));
 
 </script>
 
@@ -29,13 +27,13 @@ function submit() {
         <div class="mb-6">
             <InputLabel for="title">Title</InputLabel>
             <TextInput type="text" v-model="form.title" id="title" />
-            <InputError class="mt-1" :message="form.errors.title"></InputError>
+            <InputError class="mt-1" :message="form.errors.title" />
         </div>
 
         <div class="mb-6">
             <InputLabel for="content">Content</InputLabel>
             <Textarea name="content" id="content" rows="5" v-model="form.content" />
-            <InputError class="mt-1" :message="form.errors.content"></InputError>
+            <InputError class="mt-1" :message="form.errors.content" />
         </div>
 
         <div class="mb-6">

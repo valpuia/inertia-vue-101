@@ -3,6 +3,7 @@
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import Checkbox from '@/Components/Checkbox.vue';
+import Textarea from '@/Components/Textarea.vue';
 
 const props = defineProps({
     post: Object,
@@ -23,8 +24,7 @@ const props = defineProps({
 
         <div class="mb-6">
             <InputLabel for="content">Content</InputLabel>
-            <textarea name="content" id="content" rows="5" v-model="post.content" class="w-full border rounded-lg p-2"
-                disabled></textarea>
+            <Textarea id="content" rows="5" v-model="post.content" disabled />
         </div>
 
         <div class="mb-6">

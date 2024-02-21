@@ -5,7 +5,7 @@ import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import Textarea from '../../Components/Textarea.vue';
+import Textarea from '@/Components/Textarea.vue';
 
 const form = useForm('post', route('contact.store'), {
     name: '',
@@ -33,19 +33,19 @@ const submit = () => form.submit({
                 <div class="mb-6">
                     <InputLabel for="name">Name</InputLabel>
                     <TextInput type="text" v-model="form.name" id="name" @change="form.validate('name')" />
-                    <InputError class="mt-1" :message="form.errors.name"></InputError>
+                    <InputError class="mt-1" :message="form.errors.name" />
                 </div>
 
                 <div class="mb-6">
                     <InputLabel for="email">Email</InputLabel>
                     <TextInput type="email" v-model="form.email" id="email" @change="form.validate('email')" />
-                    <InputError class="mt-1" :message="form.errors.email"></InputError>
+                    <InputError class="mt-1" :message="form.errors.email" />
                 </div>
 
                 <div class="mb-6">
                     <InputLabel for="message">Message</InputLabel>
                     <Textarea id="message" rows="5" v-model="form.message" @change="form.validate('message')" />
-                    <InputError class="mt-1" :message="form.errors.message"></InputError>
+                    <InputError class="mt-1" :message="form.errors.message" />
                 </div>
 
                 <div class="flex items-center gap-4">

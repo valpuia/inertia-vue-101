@@ -9,15 +9,13 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 const form = useForm({
     email: '',
     password: '',
-})
+});
 
 defineOptions({
     layout: null,
 });
 
-function submit() {
-    form.post('/login', form)
-}
+const submit = () => form.post('/login', form);
 
 </script>
 
@@ -33,7 +31,7 @@ function submit() {
                 <div class="mb-6">
                     <InputLabel for="email">Email</InputLabel>
                     <TextInput type="email" v-model="form.email" id="email" required />
-                    <InputError class="mt-1" :message="form.errors.email"></InputError>
+                    <InputError class="mt-1" :message="form.errors.email" />
                 </div>
 
                 <div class="mb-6">

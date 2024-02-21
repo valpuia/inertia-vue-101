@@ -6,21 +6,19 @@ import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import Textarea from '../../Components/Textarea.vue';
+import Textarea from '@/Components/Textarea.vue';
 
 const props = defineProps({
     post: Object,
-})
+});
 
 const form = useForm({
     title: props.post.title,
     content: props.post.content,
     publish: props.post.publish,
-})
+});
 
-function submit() {
-    form.put(route('posts.update', props.post.id))
-}
+const submit = () => form.put(route('posts.update', props.post.id));
 
 </script>
 
@@ -33,13 +31,13 @@ function submit() {
         <div class="mb-6">
             <InputLabel for="title">Title</InputLabel>
             <TextInput type="text" v-model="form.title" id="title" />
-            <InputError class="mt-1" :message="form.errors.title"></InputError>
+            <InputError class="mt-1" :message="form.errors.title" />
         </div>
 
         <div class="mb-6">
             <InputLabel for="content">Content</InputLabel>
             <Textarea name="content" id="content" rows="5" v-model="form.content" />
-            <InputError class="mt-1" :message="form.errors.content"></InputError>
+            <InputError class="mt-1" :message="form.errors.content" />
         </div>
 
         <div class="mb-6">
