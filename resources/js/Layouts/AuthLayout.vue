@@ -20,11 +20,12 @@ const user = computed(() => page.props.auth.user)
     </Head>
 
     <div class="flex flex-col h-screen">
-        <section class="bg-gray-200 dark:bg-gray-800 dark:text-white p-4">
+        <section class="bg-gray-200 dark:bg-gray-900 text-gray-950 dark:text-white p-4">
             <div class="container mx-auto flex justify-between">
                 <div class="flex items-center">
                     <Link :href="route('dashboard')" class="font-bold text-2xl mr-4">
-                    <img src="/logo.png" alt="logo" class="h-10 w-10">
+                    <img src="/logo/dark.png" alt="logo" class="w-10 h-10 dark:hidden">
+                    <img src="/logo/white.png" alt="logo" class="w-10 h-10 hidden dark:flex">
                     </Link>
 
                     <Nav class="hidden sm:flex" />
@@ -62,22 +63,10 @@ const user = computed(() => page.props.auth.user)
             </div>
         </section>
 
-        <main class="flex-grow dark:bg-gray-700 dark:text-gray-200">
+        <main class="flex-grow bg-gray-50 dark:bg-gray-950 text-gray-950 dark:text-white">
             <div class="container mx-auto mt-4 px-5 md:px-0">
                 <slot />
             </div>
         </main>
-
-        <footer class="bg-gray-100 dark:bg-gray-800 dark:text-white">
-            <div class="container py-6 mx-auto flex items-center sm:flex-row flex-col">
-                <a class="flex title-font font-medium items-center md:justify-start justify-center">
-                    <img src="/logo.png" alt="logo" class="w-10 h-10">
-                    <span class="ml-3 text-xl">My App</span>
-                </a>
-                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-                    &copy; 2023. All right reserved.
-                </p>
-            </div>
-        </footer>
     </div>
 </template>
