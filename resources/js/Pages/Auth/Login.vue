@@ -22,8 +22,8 @@ const submit = () => form.post('/login', form);
 <template>
     <Head title="Login" />
 
-    <main class="grid place-items-center min-h-screen dark:bg-gray-700">
-        <section class="bg-white dark:bg-gray-800 dark:text-gray-200 p-8 rounded max-w-md mx-auto shadow-md min-w-60">
+    <main class="grid place-items-center min-h-screen dark:bg-gray-900 bg-gray-50">
+        <section class="bg-white dark:bg-gray-800 dark:text-gray-200 p-8 rounded-lg max-w-md mx-auto shadow-md min-w-60">
             <Link href="/" class="text-sm text-blue-500">&lAarr; Back</Link>
             <h1 class="text-3xl uppercase font-bold">Login</h1>
 

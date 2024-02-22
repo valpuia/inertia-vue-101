@@ -24,26 +24,26 @@ const submit = () => form.submit({
     <Head title="Contact us" />
 
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 pt-8">
-        <div class="">
+        <div>
             Contact Us
         </div>
 
         <div>
             <form @submit.prevent="submit" class="max-w-md mx-auto pt-8">
                 <div class="mb-6">
-                    <InputLabel for="name">Name</InputLabel>
+                    <InputLabel class="required" for="name">Name</InputLabel>
                     <TextInput type="text" v-model="form.name" id="name" @change="form.validate('name')" />
                     <InputError class="mt-1" :message="form.errors.name" />
                 </div>
 
                 <div class="mb-6">
-                    <InputLabel for="email">Email</InputLabel>
+                    <InputLabel class="required" for="email">Email</InputLabel>
                     <TextInput type="email" v-model="form.email" id="email" @change="form.validate('email')" />
                     <InputError class="mt-1" :message="form.errors.email" />
                 </div>
 
                 <div class="mb-6">
-                    <InputLabel for="message">Message</InputLabel>
+                    <InputLabel class="required" for="message">Message</InputLabel>
                     <Textarea id="message" rows="5" v-model="form.message" @change="form.validate('message')" />
                     <InputError class="mt-1" :message="form.errors.message" />
                 </div>
