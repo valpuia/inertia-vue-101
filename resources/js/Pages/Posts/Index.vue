@@ -51,14 +51,14 @@ const deletePost = () => {
     <div class="flex justify-between">
         <h2 class="text-2xl font-semibold leading-tight">Posts</h2>
 
-        <Link href="/posts/create" class="bg-blue-500 text-white px-3 py-2 rounded">New Post</Link>
+        <Link :href="route('posts.create')" class="bg-blue-500 text-white px-3 py-1.5 ml-2 rounded">New Post</Link>
     </div>
 
     <div class="my-2 flex sm:flex-row flex-col justify-end">
         <div class="flex flex-row mb-1 sm:mb-0">
             <div class="relative">
                 <select v-model="status"
-                    class="appearance-none h-full rounded-l rounded-r border block w-full bg-white dark:bg-gray-700 dark:text-gray-200 border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 sm:rounded-r-none sm:border-r-0 border-r">
+                    class="appearance-none h-full rounded-l rounded-r border block w-full bg-gray-50 border-gray-200 dark:border-gray-800 dark:bg-gray-900 px-4 pr-8 py-2 focus:outline-none sm:rounded-r-none sm:border-r-0 border-r">
                     <option value="">All</option>
                     <option value="1">Published</option>
                     <option value="false">Unpublish</option>
@@ -80,94 +80,93 @@ const deletePost = () => {
                 </svg>
             </span>
             <input placeholder="Search" v-model="search" type="search"
-                class="appearance-none rounded-r rounded-l sm:rounded-l-none border dark:bg-gray-700 dark:text-gray-200 border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                class="appearance-none rounded-r rounded-l sm:rounded-l-none border bg-gray-50 border-gray-200 dark:border-gray-800 dark:bg-gray-900 block pl-8 pr-6 py-2 focus:outline-none w-full" />
         </div>
     </div>
 
-    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-            <table class="min-w-full leading-normal">
-                <thead>
-                    <tr>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Title
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Content
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Status
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Creator
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-if="posts.data.length" v-for="post in posts.data" :key="post.id">
-                        <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
-                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
-                                {{ post.title }}
-                            </p>
-                        </td>
-                        <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
-                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
-                                {{ post.content.substr(0, 50) + '...' }}
-                            </p>
-                        </td>
-                        <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
-                            <p class="whitespace-no-wrap capitalize"
-                                :class="post.publish ? 'text-green-600' : 'text-red-500'">
-                                {{ post.publish ? 'Published' : 'Unpublish' }}
-                            </p>
-                        </td>
-                        <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm">
-                            <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
-                                {{ post.user.name }}
-                            </p>
-                        </td>
-                        <td
-                            class="px-3 py-3 border-b border-gray-200 bg-white dark:bg-gray-600 dark:border-gray-500 text-sm flex justify-end items-center">
-                            <Link :href="route('posts.show', post.id)" class="mr-2 text-gray-600 dark:text-gray-300">
-                            <EyeIcon class="w-5 h-5" />
-                            </Link>
+    <div class="overflow-x-auto rounded-lg shadow">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr>
+                    <th
+                        class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Title
+                    </th>
+                    <th
+                        class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Content
+                    </th>
+                    <th
+                        class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Status
+                    </th>
+                    <th
+                        class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Creator
+                    </th>
+                    <th
+                        class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-if="posts.data.length" v-for="post in posts.data" :key="post.id">
+                    <td
+                        class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm">
+                        <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
+                            {{ post.title }}
+                        </p>
+                    </td>
+                    <td
+                        class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm">
+                        <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
+                            {{ post.content.substr(0, 50) + '...' }}
+                        </p>
+                    </td>
+                    <td
+                        class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm">
+                        <p class="whitespace-no-wrap capitalize" :class="post.publish ? 'text-green-600' : 'text-red-500'">
+                            {{ post.publish ? 'Published' : 'Unpublish' }}
+                        </p>
+                    </td>
+                    <td
+                        class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm">
+                        <p class="text-gray-900 dark:text-gray-300 whitespace-no-wrap">
+                            {{ post.user.name }}
+                        </p>
+                    </td>
+                    <td
+                        class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm text-right">
+                        <Link :href="route('posts.show', post.id)"
+                            class="mr-2 text-gray-600 dark:text-gray-300 inline-flex">
+                        <EyeIcon class="w-5 h-5" />
+                        </Link>
 
-                            <Link :href="route('posts.edit', post.id)" class="mr-2 text-blue-500">
-                            <PencilSquareIcon class="w-5 h-5" />
-                            </Link>
+                        <Link :href="route('posts.edit', post.id)" class="mr-2 text-blue-500 inline-flex">
+                        <PencilSquareIcon class="w-5 h-5" />
+                        </Link>
 
-                            <button @click="confirmModal(post.id)" class="text-red-500">
-                                <TrashIcon class="w-5 h-5" />
-                            </button>
-                        </td>
-                    </tr>
+                        <button @click="confirmModal(post.id)" class="text-red-500 inline-flex">
+                            <TrashIcon class="w-5 h-5" />
+                        </button>
+                    </td>
+                </tr>
 
-                    <tr v-else>
-                        <td colspan="5" class="px-3 py-3 border-gray-200 bg-white dark:bg-gray-600 text-sm text-center">
-                            <p class="text-gray-900 dark:text-gray-200 whitespace-no-wrap">
-                                No data found
-                            </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                <tr v-else>
+                    <td colspan="5" class="px-3 py-3 border-gray-200 bg-gray-100 dark:bg-gray-900 text-sm text-center">
+                        <p class="text-gray-950 dark:text-white whitespace-no-wrap">
+                            No data found
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <SimplePagination v-if="props.posts.data.length" :prevUrl="props.posts.prev_page_url"
-        :nextUrl="props.posts.next_page_url" :total="props.posts.total" :from="props.posts.from" :to="props.posts.to" />
+        :nextUrl="props.posts.next_page_url" :total="props.posts.total" :from="props.posts.from" :to="props.posts.to"
+        class="mt-2" />
 
     <Modal :show="openDeleteConfirmationModal">
         <div class="p-6 dark:bg-gray-600 dark:text-gray-200">

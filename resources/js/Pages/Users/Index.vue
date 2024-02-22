@@ -146,7 +146,7 @@ const deleteUser = () => {
                 </tr>
 
                 <tr v-else>
-                    <td colspan="5" class="px-3 py-3 border-gray-200 bg-gray-100 dark:bg-gray-900 text-sm text-center">
+                    <td colspan="3" class="px-3 py-3 border-gray-200 bg-gray-100 dark:bg-gray-900 text-sm text-center">
                         <p class="text-gray-950 dark:text-white whitespace-no-wrap">
                             No data found
                         </p>
