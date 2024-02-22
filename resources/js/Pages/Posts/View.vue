@@ -4,6 +4,7 @@ import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import Textarea from '@/Components/Textarea.vue';
+import BackButton from '@/Components/BackButton.vue';
 
 const props = defineProps({
     post: Object,
@@ -34,6 +35,6 @@ const props = defineProps({
             </label>
         </div>
 
-        <Link :href="route('posts.index')" class="border rounded-lg bg-gray-50 dark:bg-gray-500 px-4 py-3 ml-2">Back</Link>
+        <BackButton :href="route('posts.index')">Back</BackButton>
     </form>
 </template>

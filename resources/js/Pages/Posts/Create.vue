@@ -7,6 +7,7 @@ import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import Textarea from '@/Components/Textarea.vue';
+import BackButton from '@/Components/BackButton.vue';
 
 const form = useForm('post', route('posts.store'), {
     title: '',
@@ -48,6 +49,6 @@ const submit = () => form.submit();
             Submit
         </PrimaryButton>
 
-        <Link :href="route('posts.index')" class="border rounded-lg bg-gray-50 dark:bg-gray-500 px-4 py-3 ml-2">Back</Link>
+        <BackButton :href="route('posts.index')" class="ml-2">Back</BackButton>
     </form>
 </template>

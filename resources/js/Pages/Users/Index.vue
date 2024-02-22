@@ -159,20 +159,20 @@ const deleteUser = () => {
     <Pagination :links="users.links" class="mt-6 flex justify-end" />
 
     <Modal :show="openEditUser">
-        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+        <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
                 Edit User
             </h2>
 
             <div class="mt-6">
-                <InputLabel for="name">Name</InputLabel>
-                <TextInput type="text" v-model="form.name" id="name" />
+                <InputLabel class="required" for="name">Name</InputLabel>
+                <TextInput required type="text" v-model="form.name" id="name" />
                 <InputError class="mt-1" :message="form.errors.name" />
             </div>
 
             <div class="mt-6">
-                <InputLabel for="email">Email</InputLabel>
-                <TextInput type="email" v-model="form.email" id="email" />
+                <InputLabel class="required" for="email">Email</InputLabel>
+                <TextInput required type="email" v-model="form.email" id="email" />
                 <InputError class="mt-1" :message="form.errors.email" />
             </div>
 
@@ -188,7 +188,7 @@ const deleteUser = () => {
     </Modal>
 
     <Modal :show="openDeleteModal">
-        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+        <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
                 Delete User?
             </h2>

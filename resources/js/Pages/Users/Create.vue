@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import BackButton from '@/Components/BackButton.vue';
 
 const form = useForm('post', route('users.store'), {
     name: '',
@@ -51,5 +52,7 @@ const submit = () => form.submit();
         <PrimaryButton type="submit" :disabled="form.processing">
             Submit
         </PrimaryButton>
+
+        <BackButton :href="route('users.index')" class="ml-2">Back</BackButton>
     </form>
 </template>
