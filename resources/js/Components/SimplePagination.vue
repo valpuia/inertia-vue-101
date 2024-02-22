@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="bg-white dark:bg-gray-700 flex flex-col xs:flex-row items-center xs:justify-between          ">
+    <div class="bg-gray-50 dark:bg-gray-950 flex flex-col xs:flex-row items-center xs:justify-between          ">
         <span class="text-xs xs:text-sm text-gray-900 dark:text-gray-200">
             Showing {{ from }} to {{ to }} of {{ total }} Entries
         </span>
