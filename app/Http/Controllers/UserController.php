@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Inertia\Inertia;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(HandlePrecognitiveRequests::class, [
+            'only' => ['store'],
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $users = User::query()
-            ->when(request('search'), function ($q, $search) {
-                $q->where('name', 'like', "%{$search}%");
-            })
+            ->filter(request()->only('search'))
             ->latest()
             ->paginate(10, ['id', 'name', 'email'])
             ->withQueryString();
@@ -39,15 +44,9 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $attributes = Validator::validate($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-        ]);
-
-        User::create($attributes);
+        User::create($request->validated());
 
         return to_route('users.index');
     }
@@ -55,14 +54,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        $attributes = Validator::validate($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-        ]);
-
-        $user->update($attributes);
+        $user->update($request->validated());
     }
 
     /**

@@ -11,7 +11,7 @@ import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import DangerButton from '@/Components/DangerButton.vue';
-import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
+import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/24/outline';
 
 const props = defineProps({
     users: Object,
@@ -140,13 +140,13 @@ const deleteUser = () => {
             <div class="mt-6">
                 <InputLabel for="name">Name</InputLabel>
                 <TextInput type="text" v-model="form.name" id="name" />
-                <InputError class="mt-1" :message="form.errors.name"></InputError>
+                <InputError class="mt-1" :message="form.errors.name" />
             </div>
 
             <div class="mt-6">
                 <InputLabel for="email">Email</InputLabel>
                 <TextInput type="email" v-model="form.email" id="email" />
-                <InputError class="mt-1" :message="form.errors.email"></InputError>
+                <InputError class="mt-1" :message="form.errors.email" />
             </div>
 
             <div class="mt-6 flex justify-end">
