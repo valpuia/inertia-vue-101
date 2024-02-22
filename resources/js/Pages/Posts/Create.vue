@@ -1,6 +1,6 @@
 <script setup>
 
-import { useForm } from '@inertiajs/vue3';
+import { useForm } from 'laravel-precognition-vue-inertia';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
@@ -8,13 +8,13 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import Textarea from '@/Components/Textarea.vue';
 
-const form = useForm({
+const form = useForm('post', route('posts.store'), {
     title: '',
     content: '',
     publish: false,
 });
 
-const submit = () => form.post(route('posts.store'));
+const submit = () => form.submit();
 
 </script>
 
@@ -25,14 +25,15 @@ const submit = () => form.post(route('posts.store'));
 
     <form @submit.prevent="submit" class="max-w-md mx-auto pt-8">
         <div class="mb-6">
-            <InputLabel for="title">Title</InputLabel>
-            <TextInput type="text" v-model="form.title" id="title" />
+            <InputLabel class="required" for="title">Title</InputLabel>
+            <TextInput required type="text" v-model="form.title" id="title" @change="form.validate('title')" />
             <InputError class="mt-1" :message="form.errors.title" />
         </div>
 
         <div class="mb-6">
-            <InputLabel for="content">Content</InputLabel>
-            <Textarea name="content" id="content" rows="5" v-model="form.content" />
+            <InputLabel class="required" for="content">Content</InputLabel>
+            <Textarea required name="content" id="content" rows="5" v-model="form.content"
+                @change="form.validate('content')" />
             <InputError class="mt-1" :message="form.errors.content" />
         </div>
 

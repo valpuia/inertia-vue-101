@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(HandlePrecognitiveRequests::class, [
+            'only' => ['store', 'update'],
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -39,14 +46,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $attributes = Validator::validate($request->all(), [
-            'title' => 'required|max:255',
-            'content' => 'required|max:1000',
-            'publish' => 'boolean',
-        ]);
-
+        $attributes = $request->validated();
         $attributes['slug'] = Str::slug($attributes['title'], '-');
         $attributes['user_id'] = auth()->id();
 
@@ -82,15 +84,9 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $attributes = Validator::validate($request->all(), [
-            'title' => 'required|max:255',
-            'content' => 'required|max:1000',
-            'publish' => 'boolean',
-        ]);
-
-        $post->update($attributes);
+        $post->update($request->validated());
 
         return to_route('posts.index');
     }
