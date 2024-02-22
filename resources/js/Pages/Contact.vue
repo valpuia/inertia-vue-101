@@ -3,7 +3,7 @@
 import SimplePagination from '@/Components/SimplePagination.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import { EyeIcon } from '@heroicons/vue/20/solid';
+import { EyeIcon } from '@heroicons/vue/24/outline';
 import { ref } from 'vue';
 
 const props = defineProps({

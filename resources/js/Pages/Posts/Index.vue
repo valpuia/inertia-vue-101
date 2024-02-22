@@ -7,7 +7,7 @@ import Modal from '@/Components/Modal.vue';
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
 import debounce from 'lodash/debounce.js';
-import { PencilSquareIcon, TrashIcon, EyeIcon } from '@heroicons/vue/20/solid';
+import { PencilSquareIcon, TrashIcon, EyeIcon } from '@heroicons/vue/24/outline';
 
 const props = defineProps({
     posts: Object,
