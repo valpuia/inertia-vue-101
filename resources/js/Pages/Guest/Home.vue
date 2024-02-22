@@ -37,7 +37,7 @@ const loadMorePost = () => {
         <div class="container mx-auto relative text-center">
             <div
                 class="text-4xl font-bold bg-gradient-to-r from-sky-600 via-violet-400 to-pink-500 text-transparent bg-clip-text">
-                Welcome to my app... enzoi
+                Jack of all trades master of some!!!
             </div>
         </div>
     </div>
