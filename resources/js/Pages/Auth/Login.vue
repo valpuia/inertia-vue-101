@@ -39,7 +39,7 @@ const submit = () => form.post('/login', form);
                     <TextInput type="password" v-model="form.password" id="password" required />
                 </div>
 
-                <PrimaryButton type="submit" :disabled="form.processing" class="w-full">
+                <PrimaryButton type="submit" :disabled="form.processing" class="w-full flex items-center justify-center">
                     Login
                 </PrimaryButton>
             </form>
