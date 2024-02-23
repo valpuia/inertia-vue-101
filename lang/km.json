@@ -136,5 +136,8 @@
     "validation.uppercase": "លេខ :attribute ត្រូវតែជាអក្សរធំ។",
     "validation.url": ":Attribute ទម្រង់ត្រឹមត្រូវ។",
     "validation.uuid": ":Attribute ត្រូវតែជាទម្រង់ UUID។",
-    "app.welcome": "Jack នៃការជួញដូរទាំងអស់ជាម្ចាស់មួយចំនួន!!!"
+    "app.welcome": "Jack នៃការជួញដូរទាំងអស់ជាម្ចាស់មួយចំនួន!!!",
+    "name": "ឈ្មោះ",
+    "email": "អ៊ីមែល",
+    "message": "សារ"
 }

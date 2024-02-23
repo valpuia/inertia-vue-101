@@ -27,4 +27,18 @@ class ContactRequest extends FormRequest
             'message' => 'required|max:1000|min:10',
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => __('name'),
+            'email' => __('email'),
+            'message' => __('message'),
+        ];
+    }
 }
