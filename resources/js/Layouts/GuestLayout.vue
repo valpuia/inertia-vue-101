@@ -3,6 +3,7 @@
 import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import ThemeToggle from '@/Components/ThemeToggle.vue';
+import LocaleSwitcher from '../Components/LocaleSwitcher.vue';
 
 const page = usePage()
 
@@ -19,8 +20,9 @@ const user = computed(() => page.props.auth.user)
                 <Link href="/" class="font-bold text-2xl">My App</Link>
 
                 <div class="flex items-center">
+                    <LocaleSwitcher class="mr-3" />
                     <ThemeToggle class="mr-3" />
-                    <Link href="/login" v-if="user == null">Login</Link>
+                    <Link href="/login" v-if="user == null">{{ $t('Login') }}</Link>
                     <Link href="/dashboard" v-else>Dashboard</Link>
                 </div>
             </div>

@@ -8,16 +8,11 @@ use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/lang/{locale}', function ($locale) {
+    app()->setLocale($locale);
+
+    return back();
+})->name('locale');
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');

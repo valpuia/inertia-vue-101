@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -37,6 +38,8 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user()?->only('id', 'name'),
             ],
+            'locale' => app()->getLocale(),
+            'languages' => Language::pluck('name', 'locale')->toArray(),
         ]);
     }
 }
