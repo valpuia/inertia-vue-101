@@ -8,10 +8,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/lang/{locale}', function ($locale) {
+Route::post('/lang/{locale}', function ($locale) {
     app()->setLocale($locale);
-
-    return back();
+    session()->put('locale', $locale);
 })->name('locale');
 
 Route::controller(HomeController::class)->group(function () {

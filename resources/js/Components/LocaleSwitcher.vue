@@ -2,6 +2,7 @@
 import { router, usePage } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { LanguageIcon } from '@heroicons/vue/24/outline';
+import { i18nVue } from 'laravel-vue-i18n';
 
 const props = defineProps({
     align: {
@@ -18,10 +19,10 @@ const props = defineProps({
     },
 });
 
-const page = usePage()
-
-const locale = computed(() => page.props.locale)
-const languages = computed(() => page.props.languages)
+const page = usePage();
+const open = ref(false);
+const locale = computed(() => page.props.locale);
+const languages = computed(() => page.props.languages);
 
 const closeOnEscape = (e) => {
     if (open.value && e.key === 'Escape') {
@@ -43,10 +44,10 @@ const alignmentClasses = computed(() => {
 });
 
 const switchTheme = (locale) => {
-    router.get(route('locale', locale));
+    router.post(route('locale', locale), {}, {
+        onSuccess: () => console.log(i18nVue),
+    });
 };
-
-const open = ref(false);
 </script>
 
 <template>
