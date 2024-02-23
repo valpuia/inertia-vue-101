@@ -7,6 +7,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import ThemeToggle from '../Components/ThemeToggle.vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+const appName = import.meta.env.VITE_APP_NAME || 'My App';
 
 const page = usePage()
 
@@ -16,7 +17,7 @@ const user = computed(() => page.props.auth.user)
 
 <template>
     <Head>
-        <title>Welcome to My App</title>
+        <title>Welcome to {{ appName }}</title>
         <meta name="description" content="This is default meta" head-key="description">
     </Head>
 
