@@ -15,10 +15,10 @@ const user = computed(() => page.props.auth.user)
 
     <div class="flex flex-col h-screen">
         <section class="bg-gray-200 dark:bg-gray-900 text-gray-950 dark:text-white p-4">
-            <div class="container mx-auto flex justify-between">
+            <div class="container mx-auto flex justify-between items-center">
                 <Link href="/" class="font-bold text-2xl">My App</Link>
 
-                <div class="flex">
+                <div class="flex items-center">
                     <ThemeToggle class="mr-3" />
                     <Link href="/login" v-if="user == null">Login</Link>
                     <Link href="/dashboard" v-else>Dashboard</Link>

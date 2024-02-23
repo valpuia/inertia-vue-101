@@ -7,10 +7,6 @@ const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 const option = ref(localStorage.getItem('option'));
 const isDropdownOpen = ref(false);
 
-const toggleDropdown = () => {
-    isDropdownOpen.value = !isDropdownOpen.value;
-};
-
 const setOption = (selectedOption) => {
     localStorage.setItem('option', selectedOption);
     option.value = selectedOption
@@ -56,34 +52,44 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-center">
-        <div class="relative">
-            <button class="flex text-md p-1 border-gray-400 transition" @click="toggleDropdown">
+    <div class="relative">
+        <div @click="isDropdownOpen = !isDropdownOpen">
+            <button type="button"
+                class="flex px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md focus:outline-none transition ease-in-out duration-150">
                 <SunIcon v-if="option === 'light'" class="h-5 w-5" aria-hidden="true" />
                 <MoonIcon v-if="option === 'dark'" class="h-5 w-5" aria-hidden="true" />
                 <ComputerDesktopIcon v-if="option === 'system'" class="h-5 w-5" aria-hidden="true" />
             </button>
-
-            <div v-if="isDropdownOpen"
-                class="absolute right-0 mt-2 bg-white border border-gray-300 rounded-b shadow-lg dark:bg-gray-800 dark:border-gray-700 rounded z-50">
-                <button @click="setOption('light')"
-                    class="flex hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:active:text-gray-600">
-                    <SunIcon class="h-5 w-5" aria-hidden="true" />
-                    <span class="ml-2">Light</span>
-                </button>
-
-                <button @click="setOption('dark')"
-                    class="flex hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:active:text-gray-600">
-                    <MoonIcon class="h-5 w-5" aria-hidden="true" />
-                    <span class="ml-2">Dark</span>
-                </button>
-
-                <button @click="setOption('system')"
-                    class="flex hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:active:text-gray-600">
-                    <ComputerDesktopIcon class="h-5 w-5" aria-hidden="true" />
-                    <span class="ml-2">System</span>
-                </button>
-            </div>
         </div>
+
+        <div v-show="isDropdownOpen" class="fixed inset-0 z-40" @click="isDropdownOpen = false"></div>
+
+        <Transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 scale-95"
+            enter-to-class="opacity-100 scale-100" leave-active-class="transition ease-in duration-75"
+            leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+            <div v-show="isDropdownOpen"
+                class="absolute z-50 mt-2 rounded-md shadow-lg ltr:origin-top-left rtl:origin-top-right start-0"
+                style="display: none" @click="isDropdownOpen = false">
+                <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white dark:bg-gray-800">
+                    <button @click="setOption('light')"
+                        class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
+                        <SunIcon class="h-5 w-5" aria-hidden="true" />
+                        <span class="ml-2">Light</span>
+                    </button>
+
+                    <button @click="setOption('dark')"
+                        class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
+                        <MoonIcon class="h-5 w-5" aria-hidden="true" />
+                        <span class="ml-2">Dark</span>
+                    </button>
+
+                    <button @click="setOption('system')"
+                        class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
+                        <ComputerDesktopIcon class="h-5 w-5" aria-hidden="true" />
+                        <span class="ml-2">System</span>
+                    </button>
+                </div>
+            </div>
+        </Transition>
     </div>
 </template>

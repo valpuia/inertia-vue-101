@@ -169,7 +169,7 @@ const deletePost = () => {
         class="mt-2" />
 
     <Modal :show="openDeleteConfirmationModal">
-        <div class="p-6 dark:bg-gray-600 dark:text-gray-200">
+        <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
                 Delete Post?
             </h2>
