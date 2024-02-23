@@ -1,5 +1,7 @@
 <script setup>
 
+import BackButton from '@/Components/BackButton.vue';
+
 defineProps({
     post: Object,
     date: String,
@@ -11,7 +13,7 @@ defineProps({
     <Head :title="post.title" />
 
     <section class="max-w-md mx-auto mt-6">
-        <div class="border rounded-xl bg-gray-100 dark:bg-gray-600 dark:border-gray-500 p-4 mb-4">
+        <div class="border rounded-xl bg-gray-100 dark:bg-gray-900 dark:border-gray-800 p-4 mb-4">
             <div class="font-semibold text-2xl">{{ post.title }}</div>
 
             <div class="text-sm text-gray-600 dark:text-gray-400 py-2">{{ post.user.name + ' | ' + date }}</div>
@@ -19,7 +21,6 @@ defineProps({
             <div>{{ post.content }}</div>
         </div>
 
-        <Link :href="route('home')" class="border px-2 py-1 bg-gray-100 dark:bg-gray-600 dark:border-gray-500 rounded">Back
-        </Link>
+        <BackButton :href="route('home')">Back</BackButton>
     </section>
 </template>
