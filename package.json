@@ -19,6 +19,7 @@
     "@heroicons/vue": "^2.1.1",
     "@inertiajs/vue3": "^1.0.14",
     "@vitejs/plugin-vue": "^5.0.3",
-    "laravel-precognition-vue-inertia": "^0.5.4"
+    "laravel-precognition-vue-inertia": "^0.5.4",
+    "laravel-vue-i18n": "^2.7.6"
   }
 }

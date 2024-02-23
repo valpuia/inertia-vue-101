@@ -5,6 +5,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import AuthLayout from './Layouts/AuthLayout.vue';
 import GuestLayout from './Layouts/GuestLayout.vue';
+import { i18nVue } from 'laravel-vue-i18n';
 
 const appName = import.meta.env.VITE_APP_NAME || 'My App';
 
@@ -27,6 +28,12 @@ createInertiaApp({
             .use(ZiggyVue)
             .component('Link', Link)
             .component('Head', Head)
+            .use(i18nVue, {
+                resolve: async lang => {
+                    const langs = import.meta.glob('../../lang/*.json');
+                    return await langs[`../../lang/${lang}.json`]();
+                }
+            })
             .mount(el)
     },
 

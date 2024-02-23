@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <title inertia>{{ config('app.name', 'My App') }}</title>
     <meta charset="utf-8" />
