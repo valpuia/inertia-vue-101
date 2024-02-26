@@ -7,6 +7,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import ThemeToggle from '../Components/ThemeToggle.vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+import LocaleSwitcher from '../Components/LocaleSwitcher.vue';
 const appName = import.meta.env.VITE_APP_NAME || 'My App';
 
 const page = usePage()
@@ -29,6 +30,7 @@ const user = computed(() => page.props.auth.user)
                 </div>
 
                 <div class="flex sm:items-center sm:ms-6">
+                    <LocaleSwitcher class="mr-3" />
                     <ThemeToggle />
 
                     <div class="ms-3 relative">

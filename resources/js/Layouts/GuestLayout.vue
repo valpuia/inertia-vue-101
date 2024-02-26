@@ -43,7 +43,7 @@ const user = computed(() => page.props.auth.user)
                 </p>
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                     <Link :href="route('contact.us')" class="ml-3" :class="{ 'underline': route().current('contact.us') }">
-                    {{ $t('Contact') }}
+                    {{ $t('Contacts') }}
                     </Link>
                 </span>
             </div>

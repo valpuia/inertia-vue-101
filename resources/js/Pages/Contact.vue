@@ -26,9 +26,9 @@ const closeEditModal = () => {
 </script>
 
 <template>
-    <Head title="Contacts" />
+    <Head :title="$t('Contacts')" />
 
-    <h2 class="text-2xl font-semibold leading-tight mb-4">Contacts</h2>
+    <h2 class="text-2xl font-semibold leading-tight mb-4">{{ $t('Contacts') }}</h2>
 
     <div class="overflow-x-auto rounded-lg shadow">
         <table class="min-w-full leading-normal">
@@ -36,19 +36,19 @@ const closeEditModal = () => {
                 <tr>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Name
+                        {{ $t('name') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Email
+                        {{ $t('email') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Message
+                        {{ $t('message') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Action
+                        {{ $t('Action') }}
                     </th>
                 </tr>
             </thead>
@@ -98,22 +98,22 @@ const closeEditModal = () => {
     <Modal :show="openContactView">
         <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium mb-4">
-                Details
+                {{ $t('Details') }}
             </h2>
 
             <div class="grid grid-cols-3 gap-4">
-                <div>Name</div>
+                <div>{{ $t('name') }}</div>
                 <div class="col-span-2">{{ contactData.name }}</div>
 
-                <div>Email</div>
+                <div>{{ $t('email') }}</div>
                 <div class="col-span-2">{{ contactData.email }}</div>
 
-                <div>Message</div>
+                <div>{{ $t('message') }}</div>
                 <div class="col-span-2">{{ contactData.message }}</div>
             </div>
 
             <div class="mt-6 flex justify-end">
-                <SecondaryButton @click="closeEditModal">Close</SecondaryButton>
+                <SecondaryButton @click="closeEditModal">{{ $t('Close') }}</SecondaryButton>
             </div>
         </div>
     </Modal>

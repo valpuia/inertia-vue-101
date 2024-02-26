@@ -8,7 +8,7 @@ import NavLink from '@/Components/NavLink.vue';
     <nav>
         <ul class="flex space-x-6">
             <li>
-                <NavLink href="/dashboard" :active="route().current('dashboard')">Dashboard</NavLink>
+                <NavLink href="/dashboard" :active="route().current('dashboard')">{{ $t('Dashboard') }}</NavLink>
             </li>
 
             <li>
@@ -20,7 +20,7 @@ import NavLink from '@/Components/NavLink.vue';
             </li>
 
             <li>
-                <NavLink href="/contacts" :active="route().current('contacts.index')">Contact</NavLink>
+                <NavLink href="/contacts" :active="route().current('contacts.index')">{{ $t('Contacts') }}</NavLink>
             </li>
         </ul>
     </nav>

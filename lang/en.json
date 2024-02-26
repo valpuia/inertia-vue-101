@@ -135,5 +135,6 @@
     "validation.uppercase": "The :attribute field must be uppercase.",
     "validation.url": "The :attribute field must be a valid URL.",
     "validation.uuid": "The :attribute field must be a valid UUID.",
-    "app.welcome": "Jack of all trades master of some!!!"
+    "app.welcome": "Jack of all trades master of some!!!",
+    "pagination": "Showing :from to :to of :total entries"
 }

@@ -146,7 +146,7 @@
     "Back": "后退",
     "All right reserved": "版权所有",
     "Load more": "装载更多",
-    "Contact": "接触",
+    "Contacts": "接触",
     "Light": "光",
     "Dark": "黑暗的",
     "System": "系统",
@@ -154,5 +154,11 @@
     "Submit": "提交",
     "Message sent": "消息已发送",
     "Dashboard": "仪表板",
-    "Welcome": "欢迎"
+    "Welcome": "欢迎",
+    "Action": "行动",
+    "Details": "细节",
+    "Close": "关闭",
+    "pagination": "显示 :from 到 :to 共 :total 条",
+    "Prev": "上一页",
+    "Next": "下一页"
 }
