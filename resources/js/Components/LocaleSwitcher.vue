@@ -2,7 +2,7 @@
 import { router, usePage } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { LanguageIcon } from '@heroicons/vue/24/outline';
-import { i18nVue } from 'laravel-vue-i18n';
+import { loadLanguageAsync } from 'laravel-vue-i18n';
 
 const props = defineProps({
     align: {
@@ -45,7 +45,7 @@ const alignmentClasses = computed(() => {
 
 const switchTheme = (locale) => {
     router.post(route('locale', locale), {}, {
-        onSuccess: () => console.log(i18nVue),
+        onSuccess: () => loadLanguageAsync(locale),
     });
 };
 </script>
@@ -55,7 +55,7 @@ const switchTheme = (locale) => {
         <div @click="open = !open">
             <span class="inline-flex rounded-md">
                 <button type="button"
-                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-white bg-white dark:bg-gray-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 capitalize">
+                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-white bg-white dark:bg-gray-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     {{ locale }}
 
                     <LanguageIcon class="ms-2 -me-0.5 h-4 w-4" />
