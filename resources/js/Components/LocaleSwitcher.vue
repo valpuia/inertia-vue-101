@@ -15,7 +15,7 @@ const props = defineProps({
     },
     contentClasses: {
         type: String,
-        default: 'py-1 bg-white dark:bg-gray-700',
+        default: 'py-1 bg-white dark:bg-gray-800',
     },
 });
 
@@ -55,7 +55,7 @@ const switchTheme = (locale) => {
         <div @click="open = !open">
             <span class="inline-flex rounded-md">
                 <button type="button"
-                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-white bg-white dark:bg-gray-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 uppercase">
+                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 uppercase">
                     {{ locale.substr(0, 2) }}
 
                     <LanguageIcon class="ms-2 -me-0.5 h-4 w-4" />
@@ -72,7 +72,7 @@ const switchTheme = (locale) => {
                 style="display: none" @click="open = false">
                 <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
                     <button v-for="(lang, key) in languages" :key="key" @click="switchTheme(key)"
-                        class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
+                        class="flex hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
                         {{ lang }}
                     </button>
                 </div>
