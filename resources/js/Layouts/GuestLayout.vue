@@ -27,7 +27,7 @@ const user = computed(() => page.props.auth.user)
             </div>
         </section>
 
-        <main class="flex-grow bg-gray-50 dark:bg-gray-950 text-gray-950 dark:text-white">
+        <main class="flex-grow bg-gray-50 dark:bg-gray-950 text-gray-950 dark:text-white pb-5">
             <slot />
         </main>
 

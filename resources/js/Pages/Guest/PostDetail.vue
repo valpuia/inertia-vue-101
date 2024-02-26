@@ -12,8 +12,8 @@ defineProps({
 <template>
     <Head :title="post.title" />
 
-    <section class="max-w-md mx-auto mt-6">
-        <div class="border rounded-xl bg-gray-100 dark:bg-gray-900 dark:border-gray-800 p-4 mb-4">
+    <section class="max-w-md mx-auto mt-6 p-4">
+        <div class="md:border md:rounded-xl md:bg-gray-100 md:dark:bg-gray-900 dark:border-gray-800 md:p-4 mb-4">
             <div class="font-semibold text-2xl">{{ post.title }}</div>
 
             <div class="text-sm text-gray-600 dark:text-gray-400 py-2">{{ post.user.name + ' | ' + date }}</div>

@@ -23,7 +23,8 @@ const submit = () => form.post('/login', form);
     <Head :title="$t('Login')" />
 
     <main class="grid place-items-center min-h-screen dark:bg-gray-900 bg-gray-50">
-        <section class="bg-white dark:bg-gray-800 dark:text-gray-200 p-8 rounded-lg max-w-md mx-auto shadow-md min-w-60">
+        <section
+            class="md:bg-white md:dark:bg-gray-800 dark:text-gray-200 p-8 md:rounded-lg max-w-md mx-auto md:shadow-md min-w-60">
             <Link href="/" class="text-sm text-blue-500">&lAarr; {{ $t('Back') }}</Link>
             <h1 class="text-3xl uppercase font-bold">{{ $t('Login') }}</h1>
 
