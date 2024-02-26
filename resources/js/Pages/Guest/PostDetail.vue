@@ -21,6 +21,6 @@ defineProps({
             <div>{{ post.content }}</div>
         </div>
 
-        <BackButton :href="route('home')">Back</BackButton>
+        <BackButton :href="route('home')">{{ $t('Back') }}</BackButton>
     </section>
 </template>

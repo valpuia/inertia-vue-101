@@ -140,6 +140,19 @@
     "app.welcome": "万事通大师!!",
     "name": "姓名",
     "email": "电子邮件",
+    "password": "密码",
     "message": "消息",
-    "Login": "登录"
+    "Login": "登录",
+    "Back": "后退",
+    "All right reserved": "版权所有",
+    "Load more": "装载更多",
+    "Contact": "接触",
+    "Light": "光",
+    "Dark": "黑暗的",
+    "System": "系统",
+    "Contact us": "联系我们",
+    "Submit": "提交",
+    "Message sent": "消息已发送",
+    "Dashboard": "仪表板",
+    "Welcome": "欢迎"
 }

@@ -74,19 +74,19 @@ onMounted(() => {
                     <button @click="setOption('light')"
                         class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
                         <SunIcon class="h-5 w-5" aria-hidden="true" />
-                        <span class="ml-2">Light</span>
+                        <span class="ml-2">{{ $t('Light') }}</span>
                     </button>
 
                     <button @click="setOption('dark')"
                         class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
                         <MoonIcon class="h-5 w-5" aria-hidden="true" />
-                        <span class="ml-2">Dark</span>
+                        <span class="ml-2">{{ $t('Dark') }}</span>
                     </button>
 
                     <button @click="setOption('system')"
                         class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
                         <ComputerDesktopIcon class="h-5 w-5" aria-hidden="true" />
-                        <span class="ml-2">System</span>
+                        <span class="ml-2">{{ $t('System') }}</span>
                     </button>
                 </div>
             </div>

@@ -16,11 +16,6 @@ const user = computed(() => page.props.auth.user)
 </script>
 
 <template>
-    <Head>
-        <title>Welcome to {{ appName }}</title>
-        <meta name="description" content="This is default meta" head-key="description">
-    </Head>
-
     <div class="flex flex-col h-screen">
         <section class="bg-gray-200 dark:bg-gray-900 text-gray-950 dark:text-white p-4">
             <div class="container mx-auto flex justify-between">

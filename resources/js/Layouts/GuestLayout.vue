@@ -13,8 +13,6 @@ const user = computed(() => page.props.auth.user)
 </script>
 
 <template>
-    <Head title="Welcome to {{ appName }}" />
-
     <div class="flex flex-col h-screen">
         <section class="bg-gray-200 dark:bg-gray-900 text-gray-950 dark:text-white p-4">
             <div class="container mx-auto flex justify-between items-center">
@@ -24,7 +22,7 @@ const user = computed(() => page.props.auth.user)
                     <LocaleSwitcher class="mr-3" />
                     <ThemeToggle class="mr-3" />
                     <Link href="/login" v-if="user == null">{{ $t('Login') }}</Link>
-                    <Link href="/dashboard" v-else>Dashboard</Link>
+                    <Link href="/dashboard" v-else>{{ $t('Dashboard') }}</Link>
                 </div>
             </div>
         </section>
@@ -41,11 +39,11 @@ const user = computed(() => page.props.auth.user)
                     <span class="ml-3 text-xl">{{ appName }}</span>
                 </a>
                 <p class="text-sm sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-                    &copy; 2023. All right reserved.
+                    &copy; 2023. {{ $t('All right reserved') }}.
                 </p>
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                     <Link :href="route('contact.us')" class="ml-3" :class="{ 'underline': route().current('contact.us') }">
-                    Contact
+                    {{ $t('Contact') }}
                     </Link>
                 </span>
             </div>

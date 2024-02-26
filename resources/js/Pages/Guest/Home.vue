@@ -26,7 +26,7 @@ const loadMorePost = () => {
 </script>
 
 <template>
-    <Head title="Welcome" />
+    <Head :title="$t('Welcome')" />
 
     <div class="md:py-52 py-20 relative">
         <img class="absolute inset-0 h-full w-full object-cover bg-center bg-no-repeat block" src="/images/banner.jpg"
@@ -60,7 +60,7 @@ const loadMorePost = () => {
                     <button @click="loadMorePost"
                         class="border dark:border-gray-800 rounded bg-gray-100 dark:bg-gray-900 px-2 py-1 disabled:bg-gray-400"
                         :disabled="loading">
-                        Load more<span v-show="loading">...</span>
+                        {{ $t('Load more') }}<span v-show="loading">...</span>
                     </button>
                 </div>
             </div>
