@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PostsTableSeeder::class,
             ContactsTableSeeder::class,
+            LanguagesTableSeeder::class,
         ]);
     }
 }
