@@ -20,19 +20,19 @@ const submit = () => form.submit();
 </script>
 
 <template>
-    <Head title="New Post" />
+    <Head :title="$t('New Post')" />
 
-    <h1 class="font-bold">New Post</h1>
+    <h1 class="font-bold">{{ $t('New Post') }}</h1>
 
     <form @submit.prevent="submit" class="max-w-md mx-auto pt-8">
         <div class="mb-6">
-            <InputLabel class="required" for="title">Title</InputLabel>
+            <InputLabel class="required" for="title">{{ $t('title') }}</InputLabel>
             <TextInput required type="text" v-model="form.title" id="title" @change="form.validate('title')" />
             <InputError class="mt-1" :message="form.errors.title" />
         </div>
 
         <div class="mb-6">
-            <InputLabel class="required" for="content">Content</InputLabel>
+            <InputLabel class="required" for="content">{{ $t('content') }}</InputLabel>
             <Textarea required name="content" id="content" rows="5" v-model="form.content"
                 @change="form.validate('content')" />
             <InputError class="mt-1" :message="form.errors.content" />
@@ -41,14 +41,14 @@ const submit = () => form.submit();
         <div class="mb-6">
             <label class="flex items-center">
                 <Checkbox name="publish" v-model:checked="form.publish" />
-                <span class="ms-2">Publish</span>
+                <span class="ms-2">{{ $t('publish') }}</span>
             </label>
         </div>
 
         <PrimaryButton type="submit" :disabled="form.processing">
-            Submit
+            {{ $t('Submit') }}
         </PrimaryButton>
 
-        <BackButton :href="route('posts.index')" class="ml-2">Back</BackButton>
+        <BackButton :href="route('posts.index')" class="ml-2">{{ $t('Back') }}</BackButton>
     </form>
 </template>

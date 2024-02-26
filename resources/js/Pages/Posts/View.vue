@@ -13,28 +13,28 @@ const props = defineProps({
 </script>
 
 <template>
-    <Head title="View Post" />
+    <Head :title="$t('View Post')" />
 
-    <h1 class="font-bold">View Post</h1>
+    <h1 class="font-bold">{{ $t('View Post') }}</h1>
 
     <form class="max-w-md mx-auto pt-8">
         <div class="mb-6">
-            <InputLabel for="title">Title</InputLabel>
+            <InputLabel for="title">{{ $t('title') }}</InputLabel>
             <TextInput type="text" v-model="post.title" id="title" disabled />
         </div>
 
         <div class="mb-6">
-            <InputLabel for="content">Content</InputLabel>
+            <InputLabel for="content">{{ $t('content') }}</InputLabel>
             <Textarea id="content" rows="5" v-model="post.content" disabled />
         </div>
 
         <div class="mb-6">
             <label class="flex items-center">
                 <Checkbox name="publish" v-model:checked="post.publish" disabled />
-                <span class="ms-2">Publish</span>
+                <span class="ms-2">{{ $t('publish') }}</span>
             </label>
         </div>
 
-        <BackButton :href="route('posts.index')">Back</BackButton>
+        <BackButton :href="route('posts.index')">{{ $t('Back') }}</BackButton>
     </form>
 </template>

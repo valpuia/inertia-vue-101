@@ -47,9 +47,10 @@ const user = computed(() => page.props.auth.user)
                             </template>
 
                             <template #content>
-                                <DropdownLink :href="route('home')">Home</DropdownLink>
+                                <DropdownLink :href="route('home')">{{ $t('Home') }}</DropdownLink>
 
-                                <DropdownLink :href="route('logout')" method="post" as="button">Log Out</DropdownLink>
+                                <DropdownLink :href="route('logout')" method="post" as="button">{{ $t('Logout') }}
+                                </DropdownLink>
                             </template>
                         </Dropdown>
                     </div>

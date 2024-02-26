@@ -16,7 +16,7 @@ import NavLink from '@/Components/NavLink.vue';
             </li>
 
             <li>
-                <NavLink href="/posts" :active="$page.component.startsWith('Posts')">Posts</NavLink>
+                <NavLink href="/posts" :active="$page.component.startsWith('Posts')">{{ $t('Posts') }}</NavLink>
             </li>
 
             <li>

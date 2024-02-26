@@ -46,12 +46,13 @@ const deletePost = () => {
 
 
 <template>
-    <Head title="Posts" />
+    <Head :title="$t('Posts')" />
 
     <div class="flex justify-between">
-        <h2 class="text-2xl font-semibold leading-tight">Posts</h2>
+        <h2 class="text-2xl font-semibold leading-tight">{{ $t('Posts') }}</h2>
 
-        <Link :href="route('posts.create')" class="bg-blue-500 text-white px-3 py-1.5 ml-2 rounded">New Post</Link>
+        <Link :href="route('posts.create')" class="bg-blue-500 text-white px-3 py-1.5 ml-2 rounded">{{ $t('New Post') }}
+        </Link>
     </div>
 
     <div class="my-2 flex sm:flex-row flex-col justify-end">
@@ -59,9 +60,9 @@ const deletePost = () => {
             <div class="relative">
                 <select v-model="status"
                     class="appearance-none h-full rounded-l rounded-r border block w-full bg-gray-50 border-gray-200 dark:border-gray-800 dark:bg-gray-900 px-4 pr-8 py-2 focus:outline-none sm:rounded-r-none sm:border-r-0 border-r">
-                    <option value="">All</option>
-                    <option value="1">Published</option>
-                    <option value="false">Unpublish</option>
+                    <option value="">{{ $t('All') }}</option>
+                    <option value="1">{{ $t('Published') }}</option>
+                    <option value="false">{{ $t('Unpublish') }}</option>
                 </select>
                 <div
                     class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-200">
@@ -79,7 +80,7 @@ const deletePost = () => {
                     </path>
                 </svg>
             </span>
-            <input placeholder="Search" v-model="search" type="search"
+            <input :placeholder="$t('Search...')" v-model="search" type="search"
                 class="appearance-none rounded-r rounded-l sm:rounded-l-none border bg-gray-50 border-gray-200 dark:border-gray-800 dark:bg-gray-900 block pl-8 pr-6 py-2 focus:outline-none w-full" />
         </div>
     </div>
@@ -90,23 +91,23 @@ const deletePost = () => {
                 <tr>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Title
+                        {{ $t('title') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Content
+                        {{ $t('content') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Status
+                        {{ $t('Status') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Creator
+                        {{ $t('Creator') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Action
+                        {{ $t('Action') }}
                     </th>
                 </tr>
             </thead>
@@ -127,7 +128,7 @@ const deletePost = () => {
                     <td
                         class="px-3 py-3 border-b border-gray-200 bg-gray-100 dark:bg-gray-900 dark:border-gray-800 text-sm">
                         <p class="whitespace-no-wrap capitalize" :class="post.publish ? 'text-green-600' : 'text-red-500'">
-                            {{ post.publish ? 'Published' : 'Unpublish' }}
+                            {{ post.publish ? $t('Published') : $t('Unpublish') }}
                         </p>
                     </td>
                     <td
@@ -156,7 +157,7 @@ const deletePost = () => {
                 <tr v-else>
                     <td colspan="5" class="px-3 py-3 border-gray-200 bg-gray-100 dark:bg-gray-900 text-sm text-center">
                         <p class="text-gray-950 dark:text-white whitespace-no-wrap">
-                            No data found
+                            {{ $t('No data found') }}
                         </p>
                     </td>
                 </tr>
@@ -171,18 +172,18 @@ const deletePost = () => {
     <Modal :show="openDeleteConfirmationModal">
         <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
-                Delete Post?
+                {{ $t('Delete Post?') }}
             </h2>
 
             <div class="mt-6">
-                Are you sure you want to do this
+                {{ $t('Are you sure you want to do this') }}
             </div>
 
             <div class="mt-6 flex justify-end">
-                <SecondaryButton @click="closeModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeModal">{{ $t('Cancel') }}</SecondaryButton>
 
                 <DangerButton @click="deletePost" class="ml-2">
-                    Delete
+                    {{ $t('Delete') }}
                 </DangerButton>
             </div>
         </div>

@@ -170,5 +170,19 @@
     "Delete User?": "លុប​អ្នក​ប្រើ?",
     "Are you sure you want to do this": "តើអ្នកប្រាកដទេថាអ្នកចង់ធ្វើវា",
     "Delete": "លុប",
-    "password_confirmation": "ការ​បញ្ជាក់​ពាក្យ​សម្ងាត់"
+    "password_confirmation": "ការ​បញ្ជាក់​ពាក្យ​សម្ងាត់",
+    "Posts": "ប្រកាស",
+    "New Post": "ប្រកាសថ្មី។",
+    "All": "ទាំងអស់។",
+    "publish": "បោះពុម្ពផ្សាយ",
+    "Published": "បោះពុម្ពផ្សាយ",
+    "Unpublish": "មិនបោះពុម្ព",
+    "title": "ចំណងជើង",
+    "content": "មាតិកា",
+    "Status": "ស្ថានភាព",
+    "Creator": "អ្នកបង្កើត",
+    "Delete Post?": "លុបការបង្ហោះ?",
+    "View Post": "មើលប្រកាស",
+    "Logout": "ចាកចេញ",
+    "Home": "ផ្ទះ"
 }

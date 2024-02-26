@@ -171,5 +171,19 @@
     "Delete User?": "删除用户？",
     "Are you sure you want to do this": "你确定你要这么做吗",
     "Delete": "删除",
-    "password_confirmation": "确认密码"
+    "password_confirmation": "确认密码",
+    "Posts": "帖子",
+    "New Post": "最新帖子",
+    "All": "全部",
+    "publish": "发布",
+    "Published": "已发表",
+    "Unpublish": "取消发布",
+    "title": "标题",
+    "content": "内容",
+    "Status": "地位",
+    "Creator": "创造者",
+    "Delete Post?": "删除帖子？",
+    "View Post": "查看帖子",
+    "Logout": "登出",
+    "Home": "家"
 }

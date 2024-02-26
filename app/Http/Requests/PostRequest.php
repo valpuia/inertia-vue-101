@@ -27,4 +27,18 @@ class PostRequest extends FormRequest
             'publish' => 'required|boolean',
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'title' => __('title'),
+            'content' => __('content'),
+            'publish' => __('publish'),
+        ];
+    }
 }
