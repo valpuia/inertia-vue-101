@@ -167,7 +167,7 @@ const deletePost = () => {
 
     <SimplePagination v-if="props.posts.data.length" :prevUrl="props.posts.prev_page_url"
         :nextUrl="props.posts.next_page_url" :total="props.posts.total" :from="props.posts.from" :to="props.posts.to"
-        class="mt-2" />
+        class="mt-6" />
 
     <Modal :show="openDeleteConfirmationModal">
         <div class="p-6 dark:bg-gray-800 dark:text-white">
