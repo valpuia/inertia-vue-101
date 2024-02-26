@@ -54,4 +54,19 @@ class UserRequest extends FormRequest
             'email' => 'required|email|unique:users,email,'.$this->id,
         ];
     }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => __('name'),
+            'email' => __('email'),
+            'password' => __('password'),
+            'password_confirmation' => __('password_confirmation'),
+        ];
+    }
 }

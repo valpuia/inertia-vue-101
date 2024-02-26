@@ -79,12 +79,13 @@ const deleteUser = () => {
 </script>
 
 <template>
-    <Head title="Users" />
+    <Head :title="$t('Users')" />
 
     <div class="flex justify-between">
-        <h2 class="text-2xl font-semibold leading-tight">Users</h2>
+        <h2 class="text-2xl font-semibold leading-tight">{{ $t('Users') }}</h2>
 
-        <Link :href="route('users.create')" class="bg-blue-500 text-white px-3 py-1.5 ml-2 rounded">New User</Link>
+        <Link :href="route('users.create')" class="bg-blue-500 text-white px-3 py-1.5 ml-2 rounded">{{ $t('New User') }}
+        </Link>
     </div>
 
     <div class="my-2 flex sm:flex-row flex-col justify-end">
@@ -96,7 +97,7 @@ const deleteUser = () => {
                     </path>
                 </svg>
             </span>
-            <input placeholder="Search..." v-model="search" type="search"
+            <input :placeholder="$t('Search...')" v-model="search" type="search"
                 class="appearance-none w-full rounded border bg-gray-50 border-gray-200 dark:border-gray-800 dark:bg-gray-900 block pl-8 pr-6 py-2 focus:outline-none" />
         </div>
     </div>
@@ -107,15 +108,15 @@ const deleteUser = () => {
                 <tr>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Name
+                        {{ $t('name') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Email
+                        {{ $t('email') }}
                     </th>
                     <th
                         class="px-3 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Action
+                        {{ $t('Action') }}
                     </th>
                 </tr>
             </thead>
@@ -148,7 +149,7 @@ const deleteUser = () => {
                 <tr v-else>
                     <td colspan="3" class="px-3 py-3 border-gray-200 bg-gray-100 dark:bg-gray-900 text-sm text-center">
                         <p class="text-gray-950 dark:text-white whitespace-no-wrap">
-                            No data found
+                            {{ $t('No data found') }}
                         </p>
                     </td>
                 </tr>
@@ -161,27 +162,27 @@ const deleteUser = () => {
     <Modal :show="openEditUser">
         <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
-                Edit User
+                {{ $t('Edit User') }}
             </h2>
 
             <div class="mt-6">
-                <InputLabel class="required" for="name">Name</InputLabel>
+                <InputLabel class="required" for="name">{{ $t('name') }}</InputLabel>
                 <TextInput required type="text" v-model="form.name" id="name" />
                 <InputError class="mt-1" :message="form.errors.name" />
             </div>
 
             <div class="mt-6">
-                <InputLabel class="required" for="email">Email</InputLabel>
+                <InputLabel class="required" for="email">{{ $t('email') }}</InputLabel>
                 <TextInput required type="email" v-model="form.email" id="email" />
                 <InputError class="mt-1" :message="form.errors.email" />
             </div>
 
             <div class="mt-6 flex justify-end">
-                <SecondaryButton @click="closeEditModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeEditModal">{{ $t('Cancel') }}</SecondaryButton>
 
                 <PrimaryButton class="ms-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
                     @click="updateUser">
-                    Update
+                    {{ $t('Update') }}
                 </PrimaryButton>
             </div>
         </div>
@@ -190,18 +191,18 @@ const deleteUser = () => {
     <Modal :show="openDeleteModal">
         <div class="p-6 dark:bg-gray-800 dark:text-white">
             <h2 class="text-lg font-medium">
-                Delete User?
+                {{ $t('Delete User?') }}
             </h2>
 
             <div class="mt-6">
-                Are you sure you want to do this
+                {{ $t('Are you sure you want to do this') }}
             </div>
 
             <div class="mt-6 flex justify-end">
-                <SecondaryButton @click="closeDeleteModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeDeleteModal">{{ $t('Cancel') }}</SecondaryButton>
 
                 <DangerButton @click="deleteUser" class="ml-2">
-                    Delete
+                    {{ $t('Delete') }}
                 </DangerButton>
             </div>
         </div>

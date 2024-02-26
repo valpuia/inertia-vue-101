@@ -19,40 +19,40 @@ const submit = () => form.submit();
 </script>
 
 <template>
-    <Head title="New User" />
+    <Head :title="$t('New User')" />
 
-    <h1 class="font-bold">New User</h1>
+    <h1 class="font-bold">{{ $t('New User') }}</h1>
 
     <form @submit.prevent="submit" class="max-w-md mx-auto pt-8">
         <div class="mb-6">
-            <InputLabel class="required" for="name">Name</InputLabel>
+            <InputLabel class="required" for="name">{{ $t('name') }}</InputLabel>
             <TextInput required type="text" v-model="form.name" id="name" @change="form.validate('name')" />
             <InputError class="mt-1" :message="form.errors.name" />
         </div>
 
         <div class="mb-6">
-            <InputLabel class="required" for="email">Email</InputLabel>
+            <InputLabel class="required" for="email">{{ $t('email') }}</InputLabel>
             <TextInput required type="email" v-model="form.email" id="email" @change="form.validate('email')" />
             <InputError class="mt-1" :message="form.errors.email" />
         </div>
 
         <div class="mb-6">
-            <InputLabel class="required" for="password">Password</InputLabel>
+            <InputLabel class="required" for="password">{{ $t('password') }}</InputLabel>
             <TextInput required type="password" v-model="form.password" id="password" @change="form.validate('password')" />
             <InputError class="mt-1" :message="form.errors.password" />
         </div>
 
         <div class="mb-6">
-            <InputLabel class="required" for="password_confirmation">Password Confirmation</InputLabel>
+            <InputLabel class="required" for="password_confirmation">{{ $t('password_confirmation') }}</InputLabel>
             <TextInput required type="password" v-model="form.password_confirmation" id="password_confirmation"
                 @change="form.validate('password_confirmation')" />
             <InputError class="mt-1" :message="form.errors.password_confirmation" />
         </div>
 
         <PrimaryButton type="submit" :disabled="form.processing">
-            Submit
+            {{ $t('Submit') }}
         </PrimaryButton>
 
-        <BackButton :href="route('users.index')" class="ml-2">Back</BackButton>
+        <BackButton :href="route('users.index')" class="ml-2">{{ $t('Back') }}</BackButton>
     </form>
 </template>

@@ -12,7 +12,7 @@ import NavLink from '@/Components/NavLink.vue';
             </li>
 
             <li>
-                <NavLink href="/users" :active="$page.component.startsWith('Users')">Users</NavLink>
+                <NavLink href="/users" :active="$page.component.startsWith('Users')">{{ $t('Users') }}</NavLink>
             </li>
 
             <li>

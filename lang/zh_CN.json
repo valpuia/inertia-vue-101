@@ -160,5 +160,16 @@
     "Close": "关闭",
     "pagination": "显示 :from 到 :to 共 :total 条",
     "Prev": "上一页",
-    "Next": "下一页"
+    "Next": "下一页",
+    "Users": "用户",
+    "New User": "新用户",
+    "Search...": "搜索...",
+    "No data found": "没有找到数据",
+    "Edit User": "编辑用户",
+    "Cancel": "取消",
+    "Update": "更新",
+    "Delete User?": "删除用户？",
+    "Are you sure you want to do this": "你确定你要这么做吗",
+    "Delete": "删除",
+    "password_confirmation": "确认密码"
 }
