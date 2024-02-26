@@ -32,7 +32,7 @@ const loadMorePost = () => {
         <img class="absolute inset-0 h-full w-full object-cover bg-center bg-no-repeat block" src="/images/banner.jpg"
             alt="banner" loading="lazy" />
 
-        <div class="absolute inset-0 bg-gray-50 bg-opacity-60 dark:bg-gray-600 dark:bg-opacity-40 block"></div>
+        <div class="absolute inset-0 bg-gray-50 bg-opacity-70 dark:bg-gray-600 dark:bg-opacity-70 block"></div>
 
         <div class="container mx-auto relative text-center">
             <div
