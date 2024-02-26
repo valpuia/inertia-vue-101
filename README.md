@@ -8,3 +8,4 @@ Just a simple vue-inertia project
 - Inertia(Vue)
 - Tailwind
 - Ziggy
+- i18n-vue
