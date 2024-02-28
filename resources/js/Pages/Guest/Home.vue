@@ -42,7 +42,7 @@ const loadMorePost = () => {
         </div>
     </div>
 
-    <div class="mt-4 mx-auto p-4 md:px-0 container">
+    <div class="mt-4 mx-auto p-4 xl:px-0 container">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="md:col-span-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
