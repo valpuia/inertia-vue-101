@@ -72,7 +72,7 @@ const switchTheme = (locale) => {
                 style="display: none" @click="open = false">
                 <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
                     <button v-for="(lang, key) in languages" :key="key" @click="switchTheme(key)"
-                        class="flex hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
+                        class="flex hover:bg-gray-100 dark:hover:bg-gray-900 w-full text-left cursor-pointer py-2 px-3 focus:outline-none focus:ring rounded truncate whitespace-nowrap text-gray-500 active:text-gray-600 dark:text-white dark:hover:text-gray-400 dark:active:text-gray-600">
                         {{ lang }}
                     </button>
                 </div>
